@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {}
+    "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {
+    "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+        "projectUniqueName": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
         "projectName": "QR-Code-generator",
-        "projectPath": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+        "projectPath": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
         "packagesPath": "C:\\Users\\Disable\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\obj\\",
+        "outputPath": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -47,6 +47,10 @@
             "QRCoder": {
               "target": "Package",
               "version": "[1.6.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[8.0.10, )"
             }
           },
           "imports": [

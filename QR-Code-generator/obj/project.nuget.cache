@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "llDdlEulwJoDiJsy7RCxy/XbnPGYpC3zBbJehYv/FV24IkgNmlQER61QuZVh9ohrM95xGdUHRHQma0m16MIzSw==",
+  "dgSpecHash": "9/3EOthHLb4Y1VolQVr1fn32Pj4X2JFy7dSNqPZrsbgnYSuXRQAvFqeKEuyib8c+40ay3CsyrIab5wGreYgkMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+  "projectFilePath": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Disable\\.nuget\\packages\\qrcoder\\1.6.0\\qrcoder.1.6.0.nupkg.sha512"
+    "C:\\Users\\Disable\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\qrcoder\\1.6.0\\qrcoder.1.6.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\system.drawing.common\\8.0.10\\system.drawing.common.8.0.10.nupkg.sha512"
   ],
   "logs": []
 }
