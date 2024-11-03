@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "llDdlEulwJoDiJsy7RCxy/XbnPGYpC3zBbJehYv/FV24IkgNmlQER61QuZVh9ohrM95xGdUHRHQma0m16MIzSw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Disable\\.nuget\\packages\\qrcoder\\1.6.0\\qrcoder.1.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
