@@ -1,54 +1,28 @@
+﻿/*using QRCodeGeneratorApp.Models;
 using System.Drawing;
-using System.IO;
-using QRCoder;
-using QRCodeGeneratorApp.Models;
 
 namespace QRCodeGeneratorApp.Controller
 {
     public class QRCodeController
     {
-        private readonly QRCodeModel _qrCodeModel;
+        private QRCodeModel _qrCodeModel;
 
-        // Constructor to initialize the QRCodeController with the content
-        public QRCodeController(string content)
+        public QRCodeController(string data)
         {
-            _qrCodeModel = new QRCodeModel(content);
+            _qrCodeModel = new QRCodeModel(data);
         }
 
-        // Method to set the error correction level
-        public void SetErrorCorrectionLevel(QRCodeGenerator.ECCLevel level)
-        {
-            _qrCodeModel.ErrorCorrectionLevel = level;
-        }
-
-        // Method to set the pixel size of each QR code module
-        public void SetPixelsPerModule(int pixelsPerModule)
-        {
-            _qrCodeModel.PixelsPerModule = pixelsPerModule;
-        }
-
-        // Method to generate and retrieve the QR code as a Bitmap
-        public Bitmap GetQRCodeImage()
+        // Метод для получения обычного QR-кода
+        public Bitmap CreateQRCode()
         {
             return _qrCodeModel.GenerateQRCode();
         }
 
-        // Method to save the QR code image to a specified file path and format
-        public void SaveQRCodeToFile(string filePath, string format = "png")
+        // Метод для получения QR-кода с логотипом по центру
+        public Bitmap CreateQRCodeWithLogo(string logoPath)
         {
-            _qrCodeModel.SaveQRCode(filePath, format);
-        }
-
-        // Method to save the QR code image with a logo
-        public void SaveQRCodeWithLogo(string filePath, string logoPath, int logoSize = 50, string format = "png")
-        {
-            _qrCodeModel.SaveQRCodeWithLogo(filePath, logoPath, logoSize, format);
-        }
-
-        // Method to retrieve the QR code as a byte array
-        public byte[] GetQRCodeAsBytes(string format = "png")
-        {
-            return _qrCodeModel.GetQRCodeBytes(format);
+            return _qrCodeModel.GenerateQRCodeWithLogo(logoPath);
         }
     }
 }
+*/

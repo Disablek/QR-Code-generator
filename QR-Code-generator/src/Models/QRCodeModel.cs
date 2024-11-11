@@ -1,134 +1,64 @@
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
-using QRCoder;
+using ZXing;
+using ZXing.Common;
+using ZXing.Windows.Compatibility;
+using ZXing.QrCode.Internal;
+using System.Windows.Forms;
+
 
 namespace QRCodeGeneratorApp.Models
 {
     public class QRCodeModel
     {
-        public string Content { get; set; }
-        public int PixelsPerModule { get; set; } = 20;
-        public QRCodeGenerator.ECCLevel ErrorCorrectionLevel { get; set; } = QRCodeGenerator.ECCLevel.Q;
+        public string Data { get; set; }  // Данные для кодирования в QR
 
-        public QRCodeModel(string content)
+        public QRCodeModel(string data)
         {
-            Content = content;
+            Data = data;
         }
 
-        public Bitmap GenerateQRCode()
+        public void XUI(string filePath)
         {
-            using (var qrGenerator = new QRCodeGenerator())
+            // Инициализация BarcodeWriter для генерации QR-кода
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            EncodingOptions encodingOptions = new EncodingOptions()
             {
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(Content, ErrorCorrectionLevel);
-                using (var base64QRCode = new Base64QRCode(qrCodeData))
-                {
-                    string base64Image = base64QRCode.GetGraphic(PixelsPerModule);
-                    byte[] imageBytes = Convert.FromBase64String(base64Image);
-                    using (var ms = new MemoryStream(imageBytes))
-                    {
-                        // Create the QR code bitmap and ensure it's in a suitable format
-                        var bitmap = new Bitmap(ms);
-                        return new Bitmap(bitmap); // This should create a 32bpp image by default
-                    }
-                }
+                Width = 300,
+                Height = 300,
+                Margin = 0,
+                PureBarcode = false
+            };
+            encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+            barcodeWriter.Renderer = new BitmapRenderer();
+            barcodeWriter.Options = encodingOptions;
+            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+
+            // Генерация QR-кода
+            Bitmap bitmap = barcodeWriter.Write(Data);
+
+            // Загрузка логотипа
+            Bitmap logo = new Bitmap(@"C:\Users\Disable\Pictures\Roblox\RobloxScreenShot20240802_012422873.png");
+
+            // Убедитесь, что логотип не больше QR-кода
+            int logoSize = Math.Min(bitmap.Width, bitmap.Height) / 5; // Логотип 1/5 от размера QR
+            Bitmap resizedLogo = new Bitmap(logo, new Size(logoSize, logoSize));
+
+            // Вставка логотипа в центр QR-кода
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                g.DrawImage(resizedLogo, new Point((bitmap.Width - resizedLogo.Width) / 2, (bitmap.Height - resizedLogo.Height) / 2));
             }
+
+
+            bitmap.Save(filePath, ImageFormat.Png);
+
+            // Освобождение ресурсов
+            logo.Dispose();
+            bitmap.Dispose();
+
+            Console.WriteLine("QR код с логотипом успешно создан и сохранен по адресу: " + filePath);
         }
 
-        public void SaveQRCodeWithLogo(string filePath, string logoPath, int logoSize = 50, string format = "png")
-        {
-            Bitmap qrCodeImage = GenerateQRCode();
-
-            // Load the logo image and convert it to a suitable format
-            using (var logo = new Bitmap(logoPath))
-            {
-                Bitmap convertedLogo = ConvertLogoTo32Bpp(logo);
-
-                // Resize the logo to fit in the QR code
-                Bitmap resizedLogo = new Bitmap(convertedLogo, new Size(logoSize, logoSize));
-
-                // Calculate position to place the logo in the center
-                int x = (qrCodeImage.Width - resizedLogo.Width) / 2;
-                int y = (qrCodeImage.Height - resizedLogo.Height) / 2;
-
-                // Draw the logo on the QR code
-                using (Graphics graphics = Graphics.FromImage(qrCodeImage))
-                {
-                    graphics.DrawImage(resizedLogo, x, y, resizedLogo.Width, resizedLogo.Height);
-                }
-            }
-
-            // Determine the image format to save
-            ImageFormat imageFormat;
-            switch (format.ToLower())
-            {
-                case "jpeg":
-                case "jpg":
-                    imageFormat = ImageFormat.Jpeg;
-                    break;
-                case "bmp":
-                    imageFormat = ImageFormat.Bmp;
-                    break;
-                default:
-                    imageFormat = ImageFormat.Png;
-                    break;
-            }
-
-            // Save the QR code image with logo
-            qrCodeImage.Save(filePath, imageFormat);
-        }
-
-        private Bitmap ConvertLogoTo32Bpp(Bitmap logo)
-        {
-            // Check if the logo needs to be converted to a non-indexed format
-            if (logo.PixelFormat == PixelFormat.Format1bppIndexed ||
-                logo.PixelFormat == PixelFormat.Format4bppIndexed ||
-                logo.PixelFormat == PixelFormat.Format8bppIndexed)
-            {
-                // Create a new bitmap with a non-indexed pixel format
-                Bitmap convertedLogo = new Bitmap(logo.Width, logo.Height, PixelFormat.Format32bppArgb);
-                using (Graphics g = Graphics.FromImage(convertedLogo))
-                {
-                    g.Clear(Color.Transparent); // Clear with transparent background
-                    g.DrawImage(logo, 0, 0); // Draw the logo onto the new bitmap
-                }
-                return convertedLogo;
-            }
-            return new Bitmap(logo); // Return the original bitmap if it's already suitable
-        }
-
-        public void SaveQRCode(string filePath, string format = "png")
-        {
-            Bitmap qrCodeImage = GenerateQRCode();
-            ImageFormat imageFormat;
-            switch (format.ToLower())
-            {
-                case "jpeg":
-                case "jpg":
-                    imageFormat = ImageFormat.Jpeg;
-                    break;
-                case "bmp":
-                    imageFormat = ImageFormat.Bmp;
-                    break;
-                default:
-                    imageFormat = ImageFormat.Png;
-                    break;
-            }
-            qrCodeImage.Save(filePath, imageFormat);
-            qrCodeImage.Dispose();
-        }
-
-        public byte[] GetQRCodeBytes(string format = "png")
-        {
-            using (var memoryStream = new MemoryStream())
-            {
-                Bitmap qrCodeImage = GenerateQRCode();
-                ImageFormat imageFormat = format.ToLower() == "jpeg" ? ImageFormat.Jpeg : ImageFormat.Png;
-                qrCodeImage.Save(memoryStream, imageFormat);
-                qrCodeImage.Dispose();
-                return memoryStream.ToArray();
-            }
-        }
     }
-}
+}   
