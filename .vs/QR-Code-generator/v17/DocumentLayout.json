@@ -7,28 +7,35 @@
       "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\qrcodemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\historymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\historymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\lok.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\lok.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentfiles\\any\\any\\clr.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\historymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\historymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,7 +81,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "lok.py",
+              "DocumentMoniker": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\lok.py",
+              "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\lok.py",
+              "ToolTip": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\lok.py",
+              "RelativeToolTip": "QR-Code-generator\\src\\Models\\lok.py",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAIwCQAAAAQAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM5SURBVEhLtVVNSFRRFD7z85yGyZnUYZwxIrGUsCRSSrFFJlQriSCKCBdBLmZTlKCBi8xVzc5NiyREIqJVC6FctCgy6sWggyAVWDOpTaWpozO9mTfv53bue3fGMX3yLPrg45x33r3n3Pvd8\u002B6D/wpCiIW5eXR0dBDmmsXhgYGBMPPXYcMC/f397Glz9PT0SKIoTkuSdBGL8Cy8BlZm/woej4fr6uoq5TjuIS6skYXXwLAAz/OGLITP5yspKNLAwsagEgmCYIq9vb15PxqNLgaDwSmcv4el0vBPElGEQiGNQ0NDJTabzY\u002BhOv2NDjuz6/CnFIVobNTlRmk0m8Pg4GA4EomwJx2GO6BJNmJTUxOg3iAoFphNZCG2mIGltAp2u50euoNNz8NwB0ZYEUS4PfIeYvMrIKRFUGQZKUG52wF9504eGh8f59hQDVvuolhChjIXB6Hz9Sy5zpn5ZRgOf3G0tLTUsBQatiyRqhJ4/eEbdD54A6qiIGXdYpGUkIHi4uLtLIWGTbtIwYmUFqsVwtMpePQuDmPRn3C81g/NNT44UVcBnI2Ow13QIqoKx\u002BoTN0jyGSHS3CheRaWmuijhrob7L6byeq9Ko/t09ZolKoDwSp\u002BUmTwK3s6bpiQamYizVVLSXeX81RiVqrqczsS7UslggY8A8o/Tm0qUw\u002Bx8UltljjZcaaXXBVXlbqjyu2FvwANnmqvgQsMnTCpggTQSbTa\u002B2/A2LZToDi\u002BBLFE5JNhZ4oR77SI4yRS\u002Byd3saKU4Jk8BqCIyiwXQ\u002BrvNdVEF9jiVgEoRbHWBU3qJyb4iMak0CyB\u002BRrvMVo7M7aJo15IpiVoPBPKH6dkmsyhClXQpZJa40HdUA3CBJ6Ykoki7KyG\u002BkIS2g2nwkceYhElRVIu/LbwhCC2MTWl1ocXe3XFqDuzeI6b/aFb8FiwWCxSp2B0Ld/XkVG8FLVHQx3Nw4SVY0X0Lh48ieRyfNCURBf2I6BkQ7KFVrZksZZcBvJdwFU5tLCZ\u002BTpNrvhYpAN0BczfE9WtXJ/f53u6HxFO9SG4XrnqQAn1ZzuE5i8mH2fCtAz9/G/IKkZMR8mtCJqkxQrLfYxjjke3INjYUAfAb47MfvRyFLYgAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-11-13T13:08:53.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "clr.py",
+              "DocumentMoniker": "C:\\Users\\Disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py",
+              "RelativeDocumentMoniker": "..\\..\\..\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py",
+              "ToolTip": "C:\\Users\\Disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
+              "RelativeToolTip": "..\\..\\..\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM5SURBVEhLtVVNSFRRFD7z85yGyZnUYZwxIrGUsCRSSrFFJlQriSCKCBdBLmZTlKCBi8xVzc5NiyREIqJVC6FctCgy6sWggyAVWDOpTaWpozO9mTfv53bue3fGMX3yLPrg45x33r3n3Pvd8\u002B6D/wpCiIW5eXR0dBDmmsXhgYGBMPPXYcMC/f397Glz9PT0SKIoTkuSdBGL8Cy8BlZm/woej4fr6uoq5TjuIS6skYXXwLAAz/OGLITP5yspKNLAwsagEgmCYIq9vb15PxqNLgaDwSmcv4el0vBPElGEQiGNQ0NDJTabzY\u002BhOv2NDjuz6/CnFIVobNTlRmk0m8Pg4GA4EomwJx2GO6BJNmJTUxOg3iAoFphNZCG2mIGltAp2u50euoNNz8NwB0ZYEUS4PfIeYvMrIKRFUGQZKUG52wF9504eGh8f59hQDVvuolhChjIXB6Hz9Sy5zpn5ZRgOf3G0tLTUsBQatiyRqhJ4/eEbdD54A6qiIGXdYpGUkIHi4uLtLIWGTbtIwYmUFqsVwtMpePQuDmPRn3C81g/NNT44UVcBnI2Ow13QIqoKx\u002BoTN0jyGSHS3CheRaWmuijhrob7L6byeq9Ko/t09ZolKoDwSp\u002BUmTwK3s6bpiQamYizVVLSXeX81RiVqrqczsS7UslggY8A8o/Tm0qUw\u002Bx8UltljjZcaaXXBVXlbqjyu2FvwANnmqvgQsMnTCpggTQSbTa\u002B2/A2LZToDi\u002BBLFE5JNhZ4oR77SI4yRS\u002Byd3saKU4Jk8BqCIyiwXQ\u002BrvNdVEF9jiVgEoRbHWBU3qJyb4iMak0CyB\u002BRrvMVo7M7aJo15IpiVoPBPKH6dkmsyhClXQpZJa40HdUA3CBJ6Ykoki7KyG\u002BkIS2g2nwkceYhElRVIu/LbwhCC2MTWl1ocXe3XFqDuzeI6b/aFb8FiwWCxSp2B0Ld/XkVG8FLVHQx3Nw4SVY0X0Lh48ieRyfNCURBf2I6BkQ7KFVrZksZZcBvJdwFU5tLCZ\u002BTpNrvhYpAN0BczfE9WtXJ/f53u6HxFO9SG4XrnqQAn1ZzuE5i8mH2fCtAz9/G/IKkZMR8mtCJqkxQrLfYxjjke3INjYUAfAb47MfvRyFLYgAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-11-13T13:02:09.37Z",
+              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "QR-Code-generator\\src\\Controllers\\UserController.cs",
@@ -82,12 +115,11 @@
               "RelativeToolTip": "QR-Code-generator\\src\\Controllers\\UserController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T09:17:10.548Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T09:17:10.548Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "UserModel.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs",
               "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\UserModel.cs",
@@ -95,12 +127,11 @@
               "RelativeToolTip": "QR-Code-generator\\src\\Models\\UserModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:06:34.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T11:06:34.506Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "HistoryModel.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs",
               "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\HistoryModel.cs",
@@ -108,8 +139,7 @@
               "RelativeToolTip": "QR-Code-generator\\src\\Models\\HistoryModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:06:31.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T11:06:31.544Z"
             },
             {
               "$type": "Document",
@@ -119,7 +149,7 @@
               "RelativeDocumentMoniker": "QR-Code-generator\\Program.cs",
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\Program.cs",
               "RelativeToolTip": "QR-Code-generator\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T11:06:03.731Z",
               "EditorCaption": ""
@@ -132,14 +162,14 @@
               "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\QRCodeModel.cs",
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\QRCodeModel.cs",
               "RelativeToolTip": "QR-Code-generator\\src\\Models\\QRCodeModel.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA1wBQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwBwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T11:00:22.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "QRCodeController.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
               "RelativeDocumentMoniker": "QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
@@ -152,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "QR-Code-generator.csproj",
               "DocumentMoniker": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
               "RelativeDocumentMoniker": "QR-Code-generator\\QR-Code-generator.csproj",

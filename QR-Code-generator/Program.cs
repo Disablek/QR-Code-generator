@@ -7,8 +7,9 @@ class Program
 {
     static void Main()
     {
-        QRCodeModel QR = new QRCodeModel("example.com");
-        QR.XUI(@"C:\Users\Disable\Desktop\QRCodeWithLogo.png");
-
+        QRCodeModel QR = new QRCodeModel("https://i.ibb.co/Tm8qRm9/niggers.webp");
+        QR.CreateQRCodeWithLogo(@"C:\Users\Disable\Desktop\QRCodeWithLogo.png");
+        QR.CreateQRCode(@"C:\\Users\\Disable\\Desktop\\QRCodeWithLogo.png");
+        Console.WriteLine(QR.GenerateLinkFromImage((@"C:\Users\Disable\Desktop\niggers.jpg")));
     }
 }

@@ -20,3 +20,13 @@ C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\obj\Debug\net8
 C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\obj\Debug\net8.0\QR-Code-.CC411A07.Up2Date
 C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\zxing.dll
 C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\ZXing.Windows.Compatibility.dll
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\clr.py
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\pythonnet\__init__.py
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\pythonnet\find_libpython\__init__.py
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\pythonnet\find_libpython\__main__.py
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\pythonnet\runtime\Python.Runtime.deps.json
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\pythonnet\runtime\Python.Runtime.dll
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\pythonnet\runtime\Python.Runtime.pdb
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\pythonnet\util\__init__.py
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\Fasterflect.dll
+C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\bin\Debug\net8.0\Python.Runtime.dll
