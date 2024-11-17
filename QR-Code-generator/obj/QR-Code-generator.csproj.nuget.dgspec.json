@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {}
+    "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {
+    "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+        "projectUniqueName": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
         "projectName": "QR-Code-generator",
-        "projectPath": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+        "projectPath": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
         "packagesPath": "C:\\Users\\Disable\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\obj\\",
+        "outputPath": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -38,15 +38,32 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "QRCoder": {
+            "QuantConnect.pythonnet": {
               "target": "Package",
-              "version": "[1.6.0, )"
+              "version": "[2.0.40, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.9, )"
+            },
+            "ZXing.Net.Bindings.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[0.16.12, )"
             }
           },
           "imports": [
@@ -65,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

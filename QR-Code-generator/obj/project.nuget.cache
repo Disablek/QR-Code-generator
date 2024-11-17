@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "llDdlEulwJoDiJsy7RCxy/XbnPGYpC3zBbJehYv/FV24IkgNmlQER61QuZVh9ohrM95xGdUHRHQma0m16MIzSw==",
+  "dgSpecHash": "jYaNv6Kw1cw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Disable\\GitHub\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+  "projectFilePath": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Disable\\.nuget\\packages\\qrcoder\\1.6.0\\qrcoder.1.6.0.nupkg.sha512"
+    "C:\\Users\\Disable\\.nuget\\packages\\fasterflect\\3.0.0\\fasterflect.3.0.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\quantconnect.pythonnet.2.0.40.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\system.drawing.common\\8.0.10\\system.drawing.common.8.0.10.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\zxing.net\\0.16.9\\zxing.net.0.16.9.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\zxing.net.bindings.windows.compatibility\\0.16.12\\zxing.net.bindings.windows.compatibility.0.16.12.nupkg.sha512"
   ],
   "logs": []
 }
