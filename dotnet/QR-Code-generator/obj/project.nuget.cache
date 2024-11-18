@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jYaNv6Kw1cw=",
+  "dgSpecHash": "9EQR/jqXYvY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+  "projectFilePath": "C:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Disable\\.nuget\\packages\\fasterflect\\3.0.0\\fasterflect.3.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
