@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "9EQR/jqXYvY=",
+  "dgSpecHash": "nFTxlg4U0Bg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Disable\\.nuget\\packages\\fasterflect\\3.0.0\\fasterflect.3.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\quantconnect.pythonnet.2.0.40.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\skiasharp\\2.88.9\\skiasharp.2.88.9.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.9\\skiasharp.nativeassets.linux.2.88.9.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.9\\skiasharp.nativeassets.macos.2.88.9.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.9\\skiasharp.nativeassets.win32.2.88.9.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\system.drawing.common\\8.0.10\\system.drawing.common.8.0.10.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",

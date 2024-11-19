@@ -1,80 +1,78 @@
-﻿using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using ZXing;
+﻿using ZXing;
+using ZXing.Rendering;
 using ZXing.Common;
-using ZXing.Windows.Compatibility;
 using ZXing.QrCode.Internal;
-using Python.Runtime;
+using SkiaSharp;
+using ZXing.Windows.Compatibility;
 
-namespace QRCodeGeneratorApp.Models
-{
+namespace QRCodeGeneratorApp.Models{
     public class QRCodeModel
     {
-        public string Data { get; set; }  // Данные для кодирования в QR
+        public string Data { get; set; }
 
         public QRCodeModel(string data)
         {
             Data = data;
         }
 
-        public string GenerateLinkFromImage(string filepath)
-        {
-            string imageUrl = string.Empty;
-
-            Runtime.PythonDLL = @"C:\Users\Disable\AppData\Local\Programs\Python\Python311\python311.dll";
-            PythonEngine.Initialize();
-
-            using (Py.GIL())
-            {
-                // Добавляем путь к директории с lok.py в sys.path
-                dynamic sys = Py.Import("sys");
-                sys.path.append(@"C:\Users\Disable\Source\Repos\QR-Code-generator\QR-Code-generator\src\Models");
-                // Замените на фактический путь к lok.py
-
-                // Импортируем скрипт lok и вызываем функцию createimgBB
-                var pythonscript = Py.Import("lok");
-                var message = new PyString(filepath);
-                var result = pythonscript.InvokeMethod("createimgBB", new PyObject[] { message });
-                imageUrl = result.ToString();
-            }
-
-            Console.WriteLine("URL загруженного изображения: " + imageUrl);
-            return imageUrl;
-        }
-
         // Метод для создания QR-кода с логотипом
         public void CreateQRCodeWithLogo(string filePath)
         {
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
-            EncodingOptions encodingOptions = new EncodingOptions()
+            BarcodeWriter barcodeWriter = new BarcodeWriter
             {
-                Width = 300,
-                Height = 300,
-                Margin = 0,
-                PureBarcode = false
+                Format = BarcodeFormat.QR_CODE,
+                Options = new EncodingOptions
+                {
+                    Width = 300,
+                    Height = 300,
+                    Margin = 0,
+                    PureBarcode = false,
+                    Hints = { [EncodeHintType.ERROR_CORRECTION] = ErrorCorrectionLevel.H }
+                }
             };
-            encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-            barcodeWriter.Renderer = new BitmapRenderer();
-            barcodeWriter.Options = encodingOptions;
-            barcodeWriter.Format = BarcodeFormat.QR_CODE;
 
-            Bitmap bitmap = barcodeWriter.Write(Data);
+            // Генерация QR-кода как BitMatrix
+            BitMatrix matrix = barcodeWriter.Encode(Data);
 
-            Bitmap logo = new Bitmap(@"C:\Users\Disable\Pictures\Roblox\RobloxScreenShot20240802_012422873.png");
-
-            int logoSize = Math.Min(bitmap.Width, bitmap.Height) / 5;
-            Bitmap resizedLogo = new Bitmap(logo, new Size(logoSize, logoSize));
-
-            using (Graphics g = Graphics.FromImage(bitmap))
+            // Использование SkiaSharp для создания изображения
+            SKBitmap skBitmap = new SKBitmap(matrix.Width, matrix.Height);
+            using (SKCanvas canvas = new SKCanvas(skBitmap))
             {
-                g.DrawImage(resizedLogo, new Point((bitmap.Width - resizedLogo.Width) / 2, (bitmap.Height - resizedLogo.Height) / 2));
+                canvas.Clear(SKColors.White);
+                SKPaint blackPaint = new SKPaint { Color = SKColors.Black };
+
+                for (int y = 0; y < matrix.Height; y++)
+                {
+                    for (int x = 0; x < matrix.Width; x++)
+                    {
+                        if (matrix[x, y]) // Если пиксель черный, рисуем его
+                        {
+                            canvas.DrawPoint(x, y, blackPaint);
+                        }
+                    }
+                }
             }
 
-            bitmap.Save(filePath, ImageFormat.Png);
+            // Работа с логотипом
+            SKBitmap logo = SKBitmap.Decode(@"C:\Users\Disable\Pictures\Roblox\RobloxScreenShot20240802_012422873.png");
+            if (logo == null)
+            {
+                Console.WriteLine("Ошибка: логотип не удалось загрузить. Проверьте путь к файлу.");
+                return;
+            }
+            int logoSize = Math.Min(skBitmap.Width, skBitmap.Height) / 5;
+            SKBitmap resizedLogo = logo.Resize(new SKImageInfo(logoSize, logoSize), SKFilterQuality.High);
 
-            logo.Dispose();
-            bitmap.Dispose();
+            using (SKCanvas canvas = new SKCanvas(skBitmap))
+            {
+                canvas.DrawBitmap(resizedLogo, new SKPoint((skBitmap.Width - resizedLogo.Width) / 2, (skBitmap.Height - resizedLogo.Height) / 2));
+            }
+
+            // Сохранение изображения с QR-кодом и логотипом
+            using (var stream = System.IO.File.OpenWrite(filePath))
+            {
+                skBitmap.Encode(SKEncodedImageFormat.Png, 100).SaveTo(stream);
+            }
 
             Console.WriteLine("QR код с логотипом успешно создан и сохранен по адресу: " + filePath);
         }
@@ -82,22 +80,46 @@ namespace QRCodeGeneratorApp.Models
         // Метод для создания обычного QR-кода без логотипа
         public void CreateQRCode(string filePath)
         {
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
-            EncodingOptions encodingOptions = new EncodingOptions()
+            BarcodeWriter barcodeWriter = new BarcodeWriter
             {
-                Width = 300,
-                Height = 300,
-                Margin = 0,
-                PureBarcode = true
+                Format = BarcodeFormat.QR_CODE,
+                Options = new EncodingOptions
+                {
+                    Width = 300,
+                    Height = 300,
+                    Margin = 0,
+                    PureBarcode = true,
+                    Hints = { [EncodeHintType.ERROR_CORRECTION] = ErrorCorrectionLevel.H }
+                }
             };
-            encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-            barcodeWriter.Renderer = new BitmapRenderer();
-            barcodeWriter.Options = encodingOptions;
-            barcodeWriter.Format = BarcodeFormat.QR_CODE;
 
-            Bitmap bitmap = barcodeWriter.Write(Data);
-            bitmap.Save(filePath, ImageFormat.Png);
-            bitmap.Dispose();
+            // Генерация QR-кода как BitMatrix
+            BitMatrix matrix = barcodeWriter.Encode(Data);
+
+            // Использование SkiaSharp для создания изображения
+            SKBitmap skBitmap = new SKBitmap(matrix.Width, matrix.Height);
+            using (SKCanvas canvas = new SKCanvas(skBitmap))
+            {
+                canvas.Clear(SKColors.White);
+                SKPaint blackPaint = new SKPaint { Color = SKColors.Black };
+
+                for (int y = 0; y < matrix.Height; y++)
+                {
+                    for (int x = 0; x < matrix.Width; x++)
+                    {
+                        if (matrix[x, y]) // Если пиксель черный, рисуем его
+                        {
+                            canvas.DrawPoint(x, y, blackPaint);
+                        }
+                    }
+                }
+            }
+
+            // Сохранение изображения с QR-кодом
+            using (var stream = System.IO.File.OpenWrite(filePath))
+            {
+                skBitmap.Encode(SKEncodedImageFormat.Png, 100).SaveTo(stream);
+            }
 
             Console.WriteLine("Обычный QR код успешно создан и сохранен по адресу: " + filePath);
         }
