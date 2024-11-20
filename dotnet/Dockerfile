@@ -22,8 +22,24 @@ RUN apt-get update && apt-get install -y \
     libx11-6 \
     libxext6 \
     libxrender1 \
-    libxcb1 \
-    libxrandr2
+    libglib2.0-0 \
+    libc6 \
+    libgcc1 \
+    libstdc++6 \
+    libasound2 \
+    libpulse0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxcursor1 \
+    libxi6 \
+    libxrandr2 \
+    libpangocairo-1.0-0 \
+    libpango-1.0-0 \
+    libcairo2 \
+    libxinerama1 \
+    libgtk-3-0
+
 
 # Копируем собранные файлы из предыдущего этапа
 COPY --from=build /out .

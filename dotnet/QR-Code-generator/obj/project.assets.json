@@ -120,16 +120,16 @@
           }
         }
       },
-      "SkiaSharp.NativeAssets.Linux/2.88.9": {
+      "SkiaSharp.NativeAssets.Linux/2.88.3": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "2.88.9"
+          "SkiaSharp": "2.88.3"
         },
         "compile": {
-          "lib/net6.0/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0/_._": {}
+          "lib/net5.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/linux-arm/native/libSkiaSharp.so": {
@@ -409,10 +409,10 @@
         "skiasharp.nuspec"
       ]
     },
-    "SkiaSharp.NativeAssets.Linux/2.88.9": {
-      "sha512": "cWSaJKVPWAaT/WIn9c8T5uT/l4ETwHxNJTkEOtNKjphNo8AW6TF9O32aRkxqw3l8GUdUo66Bu7EiqtFh/XG0Zg==",
+    "SkiaSharp.NativeAssets.Linux/2.88.3": {
+      "sha512": "wz29evZVWRqN7WHfenFwQIgqtr8f5vHCutcl1XuhWrHTRZeaIBk7ngjhyHpjUMcQxtIEAdq34ZRvMQshsBYjqg==",
       "type": "package",
-      "path": "skiasharp.nativeassets.linux/2.88.9",
+      "path": "skiasharp.nativeassets.linux/2.88.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -421,14 +421,14 @@
         "build/net462/SkiaSharp.NativeAssets.Linux.targets",
         "buildTransitive/net462/SkiaSharp.NativeAssets.Linux.targets",
         "lib/net462/_._",
-        "lib/net6.0/_._",
+        "lib/net5.0/_._",
         "lib/netcoreapp3.1/_._",
         "lib/netstandard1.3/_._",
         "runtimes/linux-arm/native/libSkiaSharp.so",
         "runtimes/linux-arm64/native/libSkiaSharp.so",
         "runtimes/linux-musl-x64/native/libSkiaSharp.so",
         "runtimes/linux-x64/native/libSkiaSharp.so",
-        "skiasharp.nativeassets.linux.2.88.9.nupkg.sha512",
+        "skiasharp.nativeassets.linux.2.88.3.nupkg.sha512",
         "skiasharp.nativeassets.linux.nuspec"
       ]
     },
@@ -752,7 +752,7 @@
     "net8.0-windows7.0": [
       "QuantConnect.pythonnet >= 2.0.40",
       "SkiaSharp >= 2.88.9",
-      "SkiaSharp.NativeAssets.Linux >= 2.88.9",
+      "SkiaSharp.NativeAssets.Linux >= 2.88.3",
       "System.Drawing.Common >= 8.0.10",
       "ZXing.Net >= 0.16.9",
       "ZXing.Net.Bindings.Windows.Compatibility >= 0.16.12"
@@ -817,7 +817,7 @@
           },
           "SkiaSharp.NativeAssets.Linux": {
             "target": "Package",
-            "version": "[2.88.9, )"
+            "version": "[2.88.3, )"
           },
           "System.Drawing.Common": {
             "target": "Package",
