@@ -49,6 +49,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Dropbox.Api": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "QuantConnect.pythonnet": {
               "target": "Package",
               "version": "[2.0.40, )"

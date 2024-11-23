@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "RoW24rn8RJY=",
+  "dgSpecHash": "JJacb6qi4jU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Disable\\.nuget\\packages\\dropbox.api\\7.0.0\\dropbox.api.7.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\fasterflect\\3.0.0\\fasterflect.3.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\quantconnect.pythonnet.2.0.40.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\skiasharp\\2.88.9\\skiasharp.2.88.9.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.3\\skiasharp.nativeassets.linux.2.88.3.nupkg.sha512",
