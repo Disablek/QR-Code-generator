@@ -1,4 +1,4 @@
-# Используем образ .NET SDK
+# Используем образ .NET SDK для сборки
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 # Устанавливаем рабочую директорию
@@ -15,7 +15,7 @@ FROM mcr.microsoft.com/dotnet/runtime:8.0
 
 WORKDIR /app
 
-# Установка системных библиотек, необходимых для SkiaSharp
+# Установка системных библиотек, необходимых для SkiaSharp и Python
 RUN apt-get update && apt-get install -y \
     libfontconfig1 \
     libfreetype6 \
@@ -38,8 +38,20 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 \
     libcairo2 \
     libxinerama1 \
-    libgtk-3-0
+    libgtk-3-0 \
+    python3 \
+    python3-pip \
+    python3-venv \
+    libpython3.11 \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Создание виртуального окружения и установка библиотеки requests
+RUN python3 -m venv /venv \
+    && . /venv/bin/activate \
+    && pip install --no-cache-dir requests
+
+# Устанавливаем виртуальное окружение в PATH
+ENV PATH="/venv/bin:$PATH"
 
 # Копируем собранные файлы из предыдущего этапа
 COPY --from=build /out .

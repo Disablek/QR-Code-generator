@@ -9,28 +9,24 @@ class Program
     static void Main()
     {
         QRCodeModel QR = new QRCodeModel("https://i.ibb.co/Tm8qRm9/niggers.webp");
-        Console.WriteLine('0');
         QR.CreateQRCodeWithLogo(@"/host_desktop/Desktop/QRCodeWithLogo.png");
         QR.CreateQRCode(@"/host_desktop/Desktop/QRCode.png");
-        Console.WriteLine('1');
-        string xui = null;
-        Console.WriteLine(xui != null);
-        xui = GenerateLinkFromImage(@"/host_desktop/Desktop/niggers.jpg");
-        Console.WriteLine(xui);
+        GenerateLinkFromImage(@"/host_desktop/Desktop/niggers.jpg");
     }
     static public string GenerateLinkFromImage(string filepath)
         {
             Console.WriteLine('2');
             string imageUrl = string.Empty;
 
-            Runtime.PythonDLL = @"/host_desktop/AppData/Local/Programs/Python/Python311/python311.dll";
+            Runtime.PythonDLL = "/usr/lib/x86_64-linux-gnu/libpython3.11.so.1.0";
+
             PythonEngine.Initialize();
 
             using (Py.GIL())
             {
                 // Добавляем путь к директории с lok.py в sys.path
                 dynamic sys = Py.Import("sys");
-                sys.path.append(@"/host_desktop/Source/Repos/QR-Code-generator/QR-Code-generator/src/Models");
+                sys.path.append(@"/host_desktop/GitHub/Cursed/QR-Code-generator/python/");
                 // Замените на фактический путь к lok.py
 
                 // Импортируем скрипт lok и вызываем функцию createimgBB
