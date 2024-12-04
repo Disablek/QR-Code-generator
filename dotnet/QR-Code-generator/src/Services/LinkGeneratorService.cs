@@ -56,6 +56,16 @@ namespace QRCodeGeneratorApp.Services{
         public async Task<string> UploadFileToDropBox(string fileName, int daysUntilDeletion)
         {
             string accessToken = Environment.GetEnvironmentVariable("DROPBOX_ACCESS_TOKEN");
+
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                Console.WriteLine("Переменная DROPBOX_ACCESS_TOKEN не найдена!");
+            }
+            else
+            {
+                Console.WriteLine($"Токен успешно получен: {accessToken}");
+            }
+
             string localFilePath = @$"C:\Users\Disable\Desktop\{fileName}";
             string dropboxFilePath = $"/{fileName}";
 
@@ -156,7 +166,25 @@ namespace QRCodeGeneratorApp.Services{
                 {
                     // Удаление файла из Dropbox
                     string dropboxFilePath = $"/{fileName}";
-                    await dbx.Files.DeleteV2Async(dropboxFilePath);
+                    try
+                    {
+                        var metadata = await dbx.Files.GetMetadataAsync(dropboxFilePath);
+                        // Если файл найден, удаляем его
+                        await dbx.Files.DeleteV2Async(dropboxFilePath);
+                        Console.WriteLine($"Файл {fileName} удалён из Dropbox.");
+                    }
+                    catch (Dropbox.Api.ApiException<Dropbox.Api.Files.GetMetadataError> ex)
+                    {
+                        if (ex.ErrorResponse.IsPath && ex.ErrorResponse.AsPath.Value.IsNotFound)
+                        {
+                            Console.WriteLine($"Файл {fileName} не найден в Dropbox, пропускаем удаление.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Ошибка удаления {fileName} из Dropbox: {ex.Message}");
+                        }
+                    }
+
                     Console.WriteLine($"Файл {fileName} удалён из Dropbox.");
                 }
                 catch (Exception ex)

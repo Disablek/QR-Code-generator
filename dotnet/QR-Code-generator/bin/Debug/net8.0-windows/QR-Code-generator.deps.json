@@ -12,7 +12,6 @@
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.Data.Sqlite": "9.0.0",
-          "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.0",
           "QuantConnect.pythonnet": "2.0.40",
           "SkiaSharp": "2.88.9",

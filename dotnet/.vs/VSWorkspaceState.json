@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\QR-Code-generator",
-    "\\QR-Code-generator\\src",
-    "\\QR-Code-generator\\src\\Controllers",
-    "\\QR-Code-generator\\src\\Models",
+    "\\QR-Code-generator\\dotnet",
+    "\\QR-Code-generator\\dotnet\\src",
+    "\\QR-Code-generator\\dotnet\\src\\Controllers",
+    "\\QR-Code-generator\\dotnet\\src\\Models",
+    "\\QR-Code-generator\\dotnet\\src\\Data",
+    "\\QR-Code-generator\\dotnet\\src\\Services",
     "\\tests"
   ],
   "SelectedNode": "\\QR-Code-generator.sln",
