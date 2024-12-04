@@ -1,28 +1,35 @@
-﻿/*using QRCodeGeneratorApp.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using QRCodeGeneratorApp.Services;
 using System.Drawing;
 
-namespace QRCodeGeneratorApp.Controller
+namespace MyQRCodeApp.Controllers
 {
-    public class QRCodeController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class QRCodeController : ControllerBase
     {
-        private QRCodeModel _qrCodeModel;
+        private readonly QRCodeService _qrCodeService;
 
-        public QRCodeController(string data)
+        public QRCodeController(QRCodeService qrCodeService)
         {
-            _qrCodeModel = new QRCodeModel(data);
+            _qrCodeService = qrCodeService;
         }
 
-        // Метод для получения обычного QR-кода
-        public Bitmap CreateQRCode()
+        [HttpPost("generate")]
+        public IActionResult GenerateAndSaveQRCode([FromBody] QRCodeRequest request, Color color)
         {
-            return _qrCodeModel.GenerateQRCode();
-        }
+            // Генерация QR-кода
+            var qrBitmap = _qrCodeService.GenerateQRCode(request.Data, color, Color.White);
 
-        // Метод для получения QR-кода с логотипом по центру
-        public Bitmap CreateQRCodeWithLogo(string logoPath)
-        {
-            return _qrCodeModel.GenerateQRCodeWithLogo(logoPath);
+            // Сохранение QR-кода в базу данных
+            _qrCodeService.SaveQRCodeToDatabase(request.Data, qrBitmap);
+
+            return Ok(new { message = "QR-код успешно сгенерирован и сохранен!" });
         }
     }
+
+    public class QRCodeRequest
+    {
+        public required string Data { get; set; }
+    }
 }
-*/

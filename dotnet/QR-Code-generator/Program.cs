@@ -1,42 +1,82 @@
 ﻿using System;
 using System.Drawing;
-/*using QRCodeGeneratorApp.Controller;*/
+using System.Threading.Tasks;
+using QRCodeGeneratorApp.Data;
 using QRCodeGeneratorApp.Models;
-using Python.Runtime;
+using QRCodeGeneratorApp.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.Sqlite;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 class Program
-{
-    static void Main()
+{   
+    static async Task Main(string[] args)
     {
-        QRCodeModel QR = new QRCodeModel("https://i.ibb.co/Tm8qRm9/niggers.webp");
-        QR.CreateQRCodeWithLogo(@"/host_desktop/Desktop/QRCodeWithLogo.png");
-        QR.CreateQRCode(@"/host_desktop/Desktop/QRCode.png");
-        GenerateLinkFromImage(@"/host_desktop/Desktop/niggers.jpg");
-    }
-    static public string GenerateLinkFromImage(string filepath)
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        // Настройка базы данных
+        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+        optionsBuilder.UseSqlite("Data Source=QRCodesDatabase.db");
+        
+        using (var connection = new SqliteConnection("Data Source=QRCodesDatabase.db"))
         {
-            Console.WriteLine('2');
-            string imageUrl = string.Empty;
+            connection.Open();
+            var command = connection.CreateCommand();
+            command.CommandText = "SELECT name FROM sqlite_master WHERE type='table' AND name='Files';";
+            var result = command.ExecuteScalar();
 
-            Runtime.PythonDLL = "/usr/lib/x86_64-linux-gnu/libpython3.11.so.1.0";
-
-            PythonEngine.Initialize();
-
-            using (Py.GIL())
+            if (result == null)
             {
-                // Добавляем путь к директории с lok.py в sys.path
-                dynamic sys = Py.Import("sys");
-                sys.path.append(@"/host_desktop/GitHub/Cursed/QR-Code-generator/python/");
-                // Замените на фактический путь к lok.py
-
-                // Импортируем скрипт lok и вызываем функцию createimgBB
-                var pythonscript = Py.Import("lok");
-                var message = new PyString(filepath);
-                var result = pythonscript.InvokeMethod("createimgBB", new PyObject[] { message });
-                imageUrl = result.ToString();
+                Console.WriteLine("Таблица 'Files' не существует.");
             }
-
-            Console.WriteLine("URL загруженного изображения: " + imageUrl);
-            return imageUrl;
+            else
+            {
+                Console.WriteLine("Таблица 'Files' найдена.");
+            }
         }
+
+        using var dbContext = new ApplicationDbContext(optionsBuilder.Options);
+        
+        dbContext.Database.EnsureCreated();
+
+        var qrCodeService = new QRCodeService(dbContext);
+        var linkGeneratorService = new LinkGeneratorService(dbContext);
+
+        // //1. Создание текстового QR-кода
+        // Console.WriteLine("Создание текстового QR-кода...");
+        // string textData = "https://example.com";
+        // var textQr = qrCodeService.GenerateQRCode(textData, Color.Black, Color.White);
+        // qrCodeService.SaveQRCodeToDatabase(textData, textQr);
+
+        // // 2. Создание WiFi QR-кода
+        // Console.WriteLine("Создание WiFi QR-кода...");
+        // string wifiSSID = "MyWiFiNetwork";
+        // string wifiPassword = "MySecurePassword";
+        // string encryptionType = "WPA";
+        // string wifiData = linkGeneratorService.GenerateWiFiLink(wifiSSID, wifiPassword, encryptionType);
+        // var wifiQr = qrCodeService.GenerateQRCode(wifiData, Color.Black, Color.White);
+        // qrCodeService.SaveQRCodeToDatabase(wifiData, wifiQr);
+
+        // 3. Создание QR-кода для файла
+        // Console.WriteLine("Создание QR-кода для файла...");
+        // string fileName = "file_example_MP3_1MG.mp3";
+        // int retentionDays = 1;
+        // string fileLink = await linkGeneratorService.UploadFileToDropBox(fileName, retentionDays);
+        // if (string.IsNullOrWhiteSpace(fileLink))
+        // {
+        //     throw new Exception("Ссылка на файл пуста. Проверьте метод UploadFileToDropBox.");
+        // }
+
+        
+        // var fileQr = qrCodeService.GenerateQRCode(fileLink, Color.Black, Color.White);
+        // qrCodeService.SaveQRCodeToDatabase(fileLink, fileQr);
+
+        // // 4. Создание QR-кода с фото
+        // Console.WriteLine("Создание QR-кода с фото...");
+        // string imagePath = "/host_desktop/Desktop/sample_image.jpg";
+        // string imageLink = linkGeneratorService.GenerateLinkFromImage(imagePath);
+        // var imageQr = qrCodeService.GenerateQRCode(imageLink, Color.Black, Color.White);
+        // qrCodeService.SaveQRCodeToDatabase(imageLink, imageQr);
+
+        // Console.WriteLine("Все QR-коды успешно созданы и сохранены в базе данных!");
+    }
 }
