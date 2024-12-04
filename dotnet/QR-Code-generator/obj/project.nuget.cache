@@ -5,6 +5,7 @@
   "projectFilePath": "C:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Disable\\.nuget\\packages\\dropbox.api\\7.0.0\\dropbox.api.7.0.0.nupkg.sha512",
+    "C:\\Users\\Disable\\.nuget\\packages\\dropbox.api\\7.0.0\\dropbox.api.7.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\fasterflect\\3.0.0\\fasterflect.3.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

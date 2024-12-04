@@ -18,6 +18,22 @@
           }
         }
       },
+      "Dropbox.Api/7.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Dropbox.Api.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dropbox.Api.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "fasterflect/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -3951,6 +3967,19 @@
     }
   },
   "libraries": {
+    "Dropbox.Api/7.0.0": {
+      "sha512": "Ie48rFTFL7rC8YGZ2KMRckhN8QbF56VzCns9+PymrjwcVfnGfKEc2EtHLUau2hrlwvaUtDf6wvTQJXHWAwhhug==",
+      "type": "package",
+      "path": "dropbox.api/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dropbox.api.7.0.0.nupkg.sha512",
+        "dropbox.api.nuspec",
+        "lib/netstandard2.0/Dropbox.Api.dll",
+        "lib/netstandard2.0/Dropbox.Api.xml"
+      ]
+    },
     "Dropbox.Api/7.0.0": {
       "sha512": "Ie48rFTFL7rC8YGZ2KMRckhN8QbF56VzCns9+PymrjwcVfnGfKEc2EtHLUau2hrlwvaUtDf6wvTQJXHWAwhhug==",
       "type": "package",
