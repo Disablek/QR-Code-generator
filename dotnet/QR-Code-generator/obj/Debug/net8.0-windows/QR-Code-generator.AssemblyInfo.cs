@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QR-Code-generator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b07ef844955f95033889001a87353821f91ac515")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4eecd72a9267656707de3c15963fcfb74770967b")]
 [assembly: System.Reflection.AssemblyProductAttribute("QR-Code-generator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QR-Code-generator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
