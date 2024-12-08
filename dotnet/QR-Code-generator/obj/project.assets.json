@@ -10467,11 +10467,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
+      "projectUniqueName": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
       "projectName": "QR-Code-generator",
-      "projectPath": "C:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
+      "projectPath": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
       "packagesPath": "C:\\Users\\Disable\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\obj\\",
+      "outputPath": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\QR-Code-generator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,0 +1,13 @@
+﻿<ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+    <System:String x:Key="Greeting">Генератор QR-кодов</System:String>
+    <System:String x:Key="ButtonQRText">🗎Текст</System:String>
+    <System:String x:Key="ButtonQRWiFi">🛜WiFi</System:String>
+    <System:String x:Key="ButtonQRFile">✉Файл</System:String>
+    <System:String x:Key="ButtonQRURL">🔗Ссылка</System:String>
+    <System:String x:Key="ButtonQRPhoto">🖼️Фото</System:String>
+    <System:String x:Key="ButtonGenerate">Сгенерировать</System:String>
+    <System:String x:Key="QRCodeGenerateError">Выберите нужный QR</System:String>
+ </ResourceDictionary>

@@ -1,0 +1,19 @@
+﻿<Page x:Class="FrontEnd.LinkPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:FrontEnd"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      Title="TextPage" Height="222" Width="424">
+    <!-- Ресурсы для мультиязычности -->
+    <Page.Resources>
+        <ResourceDictionary>
+            <System:String x:Key="QRType">QR-код с ссылкой</System:String>
+            <System:String x:Key="Watermark">Введите адрес страницы...</System:String>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="White">
+        <TextBox Name="userInput" LostFocus="userInput_LostFocus" Margin="20,48,10,0" VerticalAlignment="Top" FontSize="14" Height="29"></TextBox>
+        <TextBox Name="watermarkedTxt" GotFocus="watermarkedTxt_GotFocus" Text="{DynamicResource Watermark}" Margin="20,48,10,0" VerticalAlignment="Top" FontSize="14" Height="29" ></TextBox>
+        <Label Content="{DynamicResource QRType}"  HorizontalAlignment="Left" Margin="14,12,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+    </Grid>
+</Page>

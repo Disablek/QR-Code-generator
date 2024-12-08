@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2HO1huiydpA=",
+  "dgSpecHash": "HaQAdfBzkAk=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
+  "projectFilePath": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Disable\\.nuget\\packages\\dropbox.api\\7.0.0\\dropbox.api.7.0.0.nupkg.sha512",
     "C:\\Users\\Disable\\.nuget\\packages\\fasterflect\\3.0.0\\fasterflect.3.0.0.nupkg.sha512",

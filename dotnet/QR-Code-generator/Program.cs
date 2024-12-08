@@ -56,19 +56,19 @@ class Program
         var wifiQr = qrCodeService.GenerateQRCode(wifiData, Color.Black, Color.White);
         qrCodeService.SaveQRCodeToDatabase(wifiData, wifiQr);
 
-        //3. Создание QR-кода для файла
-        Console.WriteLine("Создание QR-кода для файла...");
-        string fileName = "file_example_MP3_1MG.mp3";
-        int retentionDays = 1;
-        string fileLink = await linkGeneratorService.UploadFileToDropBox(fileName, retentionDays);
-        if (string.IsNullOrWhiteSpace(fileLink))
-        {
-            throw new Exception("Ссылка на файл пуста. Проверьте метод UploadFileToDropBox.");
-        }
+        ////3. Создание QR-кода для файла
+        //Console.WriteLine("Создание QR-кода для файла...");
+        //string fileName = "file_example_MP3_1MG.mp3";
+        //int retentionDays = 1;
+        //string fileLink = await linkGeneratorService.UploadFileToDropBox(fileName, retentionDays);
+        //if (string.IsNullOrWhiteSpace(fileLink))
+        //{
+        //    throw new Exception("Ссылка на файл пуста. Проверьте метод UploadFileToDropBox.");
+        //}
 
         
-        var fileQr = qrCodeService.GenerateQRCode(fileLink, Color.Black, Color.White);
-        qrCodeService.SaveQRCodeToDatabase(fileLink, fileQr);
+        //var fileQr = qrCodeService.GenerateQRCode(fileLink, Color.Black, Color.White);
+        //qrCodeService.SaveQRCodeToDatabase(fileLink, fileQr);
 
         // 4. Создание QR-кода с фото
         // Console.WriteLine("Создание QR-кода с фото...");

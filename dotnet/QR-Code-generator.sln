@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QR-Code-generator", "QR-Code-generator\QR-Code-generator.csproj", "{04C3E001-3897-408B-A29E-A16D4BF7A732}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "..\FrontEnd\FrontEnd.csproj", "{492FEE75-84D3-490A-8378-98F24FAC0E7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{04C3E001-3897-408B-A29E-A16D4BF7A732}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04C3E001-3897-408B-A29E-A16D4BF7A732}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04C3E001-3897-408B-A29E-A16D4BF7A732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492FEE75-84D3-490A-8378-98F24FAC0E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492FEE75-84D3-490A-8378-98F24FAC0E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492FEE75-84D3-490A-8378-98F24FAC0E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492FEE75-84D3-490A-8378-98F24FAC0E7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

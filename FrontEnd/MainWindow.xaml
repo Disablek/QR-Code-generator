@@ -1,0 +1,130 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="FrontEnd.MainWindow"
+        Title="QRCoder" Height="520" Width="815" 
+        MaxWidth="815" MaxHeight="530" MinWidth="815" MinHeight="520" Icon="/Logo.png">
+
+    <!-- Ресурсы для мультиязычности -->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictianory/Resources.en.xaml"/>
+                <ResourceDictionary Source="Dictianory/Resources.ru.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="FocusVisual">
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+            <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+            <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+            <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+            <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+            <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+            <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+            <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+            <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+            <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border" CornerRadius="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Background="#FFE9E9E9" Margin="0,0,0,-16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="42*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Триггеры для анимации Expander -->
+        <Grid.Triggers>
+            <!-- Анимация раскрытия -->
+            <EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander">
+                <BeginStoryboard/>
+            </EventTrigger>
+
+            <!-- Анимация сворачивания -->
+            <EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander">
+                <BeginStoryboard/>
+            </EventTrigger>
+        </Grid.Triggers>
+        <!-- Expander с анимацией -->
+        <Expander x:Name="Expander" Header="Ещё" HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="102" BorderBrush="Black">
+        </Expander>
+
+        <Rectangle HorizontalAlignment="Left" Height="344" Margin="107,119,0,0" VerticalAlignment="Top" Width="488" Fill="Gainsboro">
+            <Rectangle.Effect>
+                <BlurEffect/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <!-- Страницы -->
+        <Rectangle HorizontalAlignment="Left" Height="328" Margin="114,127,0,0" VerticalAlignment="Top" Width="473" Fill="White"/>
+        <Frame x:Name="ContentFrame" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,180,0,0" Width="424" Height="222" NavigationUIVisibility="Hidden" Background="White" BorderThickness="1" />
+        <Rectangle HorizontalAlignment="Center" Height="344" Margin="0,119,0,0" VerticalAlignment="Top" Width="190" Fill="Gainsboro" Grid.Column="1">
+            <Rectangle.Effect>
+                <BlurEffect/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Center" Height="328" Margin="0,127,0,0" VerticalAlignment="Top" Width="176" Fill="White" Grid.Column="1" Stroke="Black"/>
+
+        <Ellipse HorizontalAlignment="Left" Height="58" Margin="558,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="58" Fill="#FFDADADA" RenderTransformOrigin="0.5,1" StrokeThickness="1" Grid.ColumnSpan="2"/>
+
+        <Ellipse HorizontalAlignment="Left" Height="58" Margin="558,261,0,0" VerticalAlignment="Top" Width="57" Fill="#FFDADADA" RenderTransformOrigin="0.5,1" Grid.ColumnSpan="2"/>
+
+        <Label Content="&gt;" HorizontalAlignment="Left" Margin="567,247,0,0" VerticalAlignment="Top" FontSize="48" Grid.ColumnSpan="2" Height="74" Width="43"/>
+        <Button Name="ButtonQRText"  Content="{DynamicResource ButtonQRText}" HorizontalAlignment="Left" Margin="119,138,0,0" VerticalAlignment="Top" Height="33" Width="70" BorderThickness="0,0,0,2" FontSize="18" FontWeight="Bold" BorderBrush="#FF707070" Background="{x:Null}" Click="ButtonQRText_Click"/>
+        <Button Name="ButtonQRWiFi" Content="{DynamicResource ButtonQRWiFi}" HorizontalAlignment="Left" Margin="204,138,0,0" VerticalAlignment="Top" Height="33" Width="70" BorderThickness="0,0,0,2" FontSize="18" FontWeight="Bold" BorderBrush="#FF707070" Background="{x:Null}" Click="ButtonQRWiFi_Click" />
+        <Button Name="ButtonQRFile" Content="{DynamicResource ButtonQRFile}" HorizontalAlignment="Left" Margin="289,138,0,0" VerticalAlignment="Top" Height="33" Width="78" BorderThickness="0,0,0,2" FontSize="18" FontWeight="Bold" BorderBrush="#FF707070" Background="{x:Null}" Click="ButtonQRFile_Click" />
+        <Button Name="ButtonQRURL" Content="{DynamicResource ButtonQRURL}" HorizontalAlignment="Left" Margin="382,138,0,0" VerticalAlignment="Top" Height="33" Width="93" BorderThickness="0,0,0,2" FontSize="18" FontWeight="Bold" BorderBrush="#FF707070" Background="{x:Null}" Click="ButtonQRURL_Click"/>
+        <Button Name="ButtonQRPhoto" Content="{DynamicResource ButtonQRPhoto}" HorizontalAlignment="Left" Margin="491,138,0,0" VerticalAlignment="Top" Height="33" Width="93" BorderThickness="0,0,0,2" FontSize="18" FontWeight="Bold" BorderBrush="#FF707070" Background="{x:Null}" Click="ButtonQRPhoto_Click"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="113" Margin="105,23,0,0" VerticalAlignment="Top" Width="88" Source="/Logo.png"/>
+        <Label Content="{DynamicResource Greeting}" HorizontalAlignment="Left" Margin="107,23,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="91" Width="569" FontSize="60" FontFamily="Ink Free" Foreground="#FF3CAFF8" FontWeight="Bold" />
+        <Button Style="{DynamicResource RoundedButtonStyle}" Name="ButtonGenerateQR" Content="{DynamicResource ButtonGenerate}" HorizontalAlignment="Left" Margin="164,413,0,0" VerticalAlignment="Top" Height="32" Width="374" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF58F101" Background="#FFA6E236" Foreground="White" FontWeight="Bold" FontSize="18" Click="ButtonGenerateQR_Click"/>
+        <Image Name="QRCodeImage" Grid.Column="1" HorizontalAlignment="Left" Height="133" Margin="29,138,0,0" VerticalAlignment="Top" Width="152"/>
+        <xctk:ColorPicker Name="colorPicker" Margin="29,310,29,164" Grid.Column="1" Visibility="Hidden"/>
+        <Button Content="🌐" HorizontalAlignment="Left" Margin="10,412,0,0" VerticalAlignment="Top" Click="ChangeDictianory" Height="43" Width="56" FontSize="30" BorderBrush="{x:Null}" Background="{x:Null}"/>
+    </Grid>
+</Window>
