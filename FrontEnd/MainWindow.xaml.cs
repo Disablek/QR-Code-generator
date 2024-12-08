@@ -1,30 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xceed.Wpf.Toolkit;
+using System.Windows.Controls;
 
 namespace FrontEnd
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private string _currentLanguage = "ru";
+        private HttpClient _httpClient; // Убираем создание нового клиента здесь
+
         public MainWindow()
         {
             InitializeComponent();
+            _httpClient = new HttpClient(); // Инициализируем один клиент
         }
 
         private void ButtonQRText_Click(object sender, RoutedEventArgs e)
@@ -64,7 +55,7 @@ namespace FrontEnd
 
             if (activePage == null)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show($"{QRERROR}","Ошибка!");
+                Xceed.Wpf.Toolkit.MessageBox.Show($"{QRERROR}", "Ошибка!");
                 return;
             }
             string pageName = activePage.GetType().Name;
@@ -72,25 +63,29 @@ namespace FrontEnd
             {
                 // Ищем элемент на активной странице по имени
                 TextBox myTextBox = activePage.FindName("myTextBox") as TextBox;
-
-
-
             }
-            else if (pageName == "WiFiPage")
-            {
+        }
 
+        // Пример асинхронного метода для обращения к API
+        private async Task CallApiAsync(string url)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    // Обработка полученного контента
+                }
+                else
+                {
+                    // Обработка ошибки API
+                    Xceed.Wpf.Toolkit.MessageBox.Show("Ошибка при обращении к API");
+                }
             }
-            else if (pageName == "FilePage")
+            catch (Exception ex)
             {
-
-            }
-            else if (pageName == "PhotoPage")
-            {
-
-            }
-            else
-            {
-
+                Xceed.Wpf.Toolkit.MessageBox.Show($"Ошибка: {ex.Message}");
             }
         }
 
@@ -115,6 +110,13 @@ namespace FrontEnd
 
             // Сменить текущий язык
             _currentLanguage = _currentLanguage == "ru" ? "en" : "ru";
+        }
+
+        // Пример вызова метода генерации QR-кода
+        private async void GenerateQRCode(string data)
+        {
+            QRCodeClient qrCodeClient = new QRCodeClient(_httpClient);
+            await qrCodeClient.GenerateQRCodeAsync(data);
         }
     }
 }

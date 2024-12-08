@@ -60,5 +60,3 @@ ENV PATH="/venv/bin:$PATH"
 # Копируем собранные файлы из предыдущего этапа
 COPY --from=build /out .
 
-# Команда для запуска приложения
-ENTRYPOINT ["dotnet", "QR-Code-generator.dll"]

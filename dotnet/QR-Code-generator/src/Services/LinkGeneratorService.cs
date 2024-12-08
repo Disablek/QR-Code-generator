@@ -60,10 +60,7 @@ namespace QRCodeGeneratorApp.Services{
             if (string.IsNullOrEmpty(accessToken))
             {
                 Console.WriteLine("Переменная DROPBOX_ACCESS_TOKEN не найдена!");
-            }
-            else
-            {
-                Console.WriteLine($"Токен успешно получен: {accessToken}");
+                return null;
             }
 
             string localFilePath = @$"C:\Users\Disable\Desktop\{fileName}";
@@ -113,11 +110,7 @@ namespace QRCodeGeneratorApp.Services{
                 Console.WriteLine($"Файл загружен: {uploadResponse.PathDisplay}");
 
                 // Сохранение информации в БД
-                await SaveFileInfoToDatabase(
-                    fileName,
-                    DateTime.Now,
-                    DateTime.Now.AddMinutes(daysUntilDeletion*5),
-                    dropboxLink);
+                await SaveFileInfoToDatabase(fileName, DateTime.Now, DateTime.Now.AddMinutes(daysUntilDeletion * 5), dropboxLink);
 
                 return dropboxLink;
             }
@@ -127,6 +120,7 @@ namespace QRCodeGeneratorApp.Services{
                 return null;
             }
         }
+
 
 
         static async Task RemoveExpiredFiles(DropboxClient dbx)

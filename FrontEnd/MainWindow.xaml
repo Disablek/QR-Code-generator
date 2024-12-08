@@ -79,22 +79,6 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Триггеры для анимации Expander -->
-        <Grid.Triggers>
-            <!-- Анимация раскрытия -->
-            <EventTrigger RoutedEvent="Expander.Expanded" SourceName="Expander">
-                <BeginStoryboard/>
-            </EventTrigger>
-
-            <!-- Анимация сворачивания -->
-            <EventTrigger RoutedEvent="Expander.Collapsed" SourceName="Expander">
-                <BeginStoryboard/>
-            </EventTrigger>
-        </Grid.Triggers>
-        <!-- Expander с анимацией -->
-        <Expander x:Name="Expander" Header="Ещё" HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="102" BorderBrush="Black">
-        </Expander>
-
         <Rectangle HorizontalAlignment="Left" Height="344" Margin="107,119,0,0" VerticalAlignment="Top" Width="488" Fill="Gainsboro">
             <Rectangle.Effect>
                 <BlurEffect/>
