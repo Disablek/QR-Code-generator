@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "KVpSPJofal4jxze353MJz1XVE7fjiOAY5kaKhegtQOc=",
+  "Source": "QR-Code-generator",
+  "BasePath": "_content/QR-Code-generator",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

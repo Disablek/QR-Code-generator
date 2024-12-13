@@ -5,8 +5,8 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="FrontEnd.MainWindow"
         Title="QRCoder" Height="520" Width="815" 
-        MaxWidth="815" MaxHeight="530" MinWidth="815" MinHeight="520" Icon="/Logo.png">
-
+        MaxWidth="815" MaxHeight="530" MinWidth="815" MinHeight="520" Icon="/Logo.png"
+        xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif">
     <!-- Ресурсы для мультиязычности -->
     <Window.Resources>
         <ResourceDictionary>
@@ -107,8 +107,13 @@
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="113" Margin="105,23,0,0" VerticalAlignment="Top" Width="88" Source="/Logo.png"/>
         <Label Content="{DynamicResource Greeting}" HorizontalAlignment="Left" Margin="107,23,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="91" Width="569" FontSize="60" FontFamily="Ink Free" Foreground="#FF3CAFF8" FontWeight="Bold" />
         <Button Style="{DynamicResource RoundedButtonStyle}" Name="ButtonGenerateQR" Content="{DynamicResource ButtonGenerate}" HorizontalAlignment="Left" Margin="164,413,0,0" VerticalAlignment="Top" Height="32" Width="374" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF58F101" Background="#FFA6E236" Foreground="White" FontWeight="Bold" FontSize="18" Click="ButtonGenerateQR_Click"/>
-        <Image Name="QRCodeImage" Grid.Column="1" HorizontalAlignment="Left" Height="133" Margin="29,138,0,0" VerticalAlignment="Top" Width="152"/>
-        <xctk:ColorPicker Name="colorPicker" Margin="29,310,29,164" Grid.Column="1" Visibility="Hidden"/>
+        <Image Name="QRCodeImageContainer" Grid.Column="1" HorizontalAlignment="Left" Height="133" Margin="39,138,0,0" VerticalAlignment="Top" Width="152"/>
+        <xctk:ColorPicker Name="colorPicker" SelectedColor="Black" Margin="29,310,29,164" Grid.Column="1" Visibility="Hidden" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
         <Button Content="🌐" HorizontalAlignment="Left" Margin="10,412,0,0" VerticalAlignment="Top" Click="ChangeDictianory" Height="43" Width="56" FontSize="30" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Image x:Name="AnimationImage" Visibility="Hidden" gif:AnimationBehavior.AutoStart="True" gif:AnimationBehavior.SourceUri="Resources/racoon-pedro.gif" HorizontalAlignment="Left" Height="50" Margin="562,265,0,0" VerticalAlignment="Top" Width="50" Grid.ColumnSpan="2">
+            <Image.Clip>
+                <EllipseGeometry Center="25,25" RadiusX="24" RadiusY="24" />
+            </Image.Clip>
+        </Image>
     </Grid>
 </Window>

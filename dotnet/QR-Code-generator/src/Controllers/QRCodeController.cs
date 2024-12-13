@@ -5,7 +5,7 @@ using System.Drawing;
 namespace MyQRCodeApp.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/QRCode")]
     public class QRCodeController : ControllerBase
     {
         private readonly QRCodeService _qrCodeService;
@@ -61,6 +61,13 @@ namespace MyQRCodeApp.Controllers
             }
             return BadRequest(new { message = "Ошибка загрузки файла в Dropbox" });
         }
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            Console.WriteLine("Test endpoint was hit");  // Логирование для отладки
+            return Ok("Сервер работает!");
+        }
+
     }
 
     // Запросы для получения данных из тела запроса

@@ -112,3 +112,10 @@ C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\obj\Debu
 C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\obj\Debug\FrontEnd.csproj.Up2Date
 C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\obj\Debug\Dictianory\Resources.ru.baml
 C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\obj\Debug\Dictianory\Resources.en.baml
+C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\bin\Debug\System.Drawing.Common.dll
+C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\bin\Debug\System.Drawing.Common.pdb
+C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\bin\Debug\System.Drawing.Common.xml
+C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\bin\Debug\XamlAnimatedGif.dll
+C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\bin\Debug\XamlAnimatedGif.pdb

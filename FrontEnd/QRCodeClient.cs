@@ -14,11 +14,12 @@ namespace FrontEnd
         public QRCodeClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("http://localhost:5000/api/QRCode/"); // Адрес вашего API
+
         }
 
+
         // Генерация QR-кода
-        public async Task GenerateQRCodeAsync(string data)
+        public async Task<QRCodeGenerationResponse> GenerateQRCodeAsync(string data)
         {
             var qrCodeRequest = new
             {
@@ -28,20 +29,50 @@ namespace FrontEnd
             var jsonContent = JsonConvert.SerializeObject(qrCodeRequest);
             var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("generate", content);
+            try
+            {
+                var response = await _httpClient.PostAsync("generate", content);
 
-            if (response.IsSuccessStatusCode)
-            {
-                Console.WriteLine("QR код успешно создан!");
+                // Проверяем статус ответа
+                if (!response.IsSuccessStatusCode)
+                {
+                    // Возвращаем ошибку, если статус не успешен
+                    return new QRCodeGenerationResponse
+                    {
+                        Message = $"Ошибка: {response.StatusCode}, {await response.Content.ReadAsStringAsync()}"
+                    };
+                }
+                else
+                {
+                    // Чтение байтов изображения из ответа
+                    var imageBytes = await response.Content.ReadAsByteArrayAsync();
+                    return new QRCodeGenerationResponse
+                    {
+                        ImageBytes = imageBytes,
+                        Message = "QR-код успешно сгенерирован!"
+                    };
+                }
+
             }
-            else
+            catch (HttpRequestException httpEx)
             {
-                Console.WriteLine("Ошибка при создании QR кода!");
+                return new QRCodeGenerationResponse
+                {
+                    Message = $"Ошибка запроса: {httpEx.Message}"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new QRCodeGenerationResponse
+                {
+                    Message = $"Ошибка: {ex.Message}"
+                };
             }
         }
 
+
         // Генерация ссылки на Wi-Fi
-        public async Task GenerateWiFiLinkAsync(string ssid, string password, string encryptionType)
+        public async Task<string> GenerateWiFiLinkAsync(string ssid, string password, string encryptionType)
         {
             var wifiRequest = new
             {
@@ -57,12 +88,13 @@ namespace FrontEnd
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Wi-Fi ссылка: {result}");
+                string result = await response.Content.ReadAsStringAsync();
+                return result;
             }
             else
             {
                 Console.WriteLine("Ошибка при генерации Wi-Fi ссылки!");
+                return null;
             }
         }
 
@@ -115,4 +147,10 @@ namespace FrontEnd
             }
         }
     }
+    public class QRCodeGenerationResponse
+    {
+        public byte[] ImageBytes { get; set; }
+        public string Message { get; set; }
+    }
+
 }

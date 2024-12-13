@@ -1,23 +1,22 @@
-# Используем базовый образ .NET SDK для сборки
+# Базовый образ для ASP.NET Core
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 5000
+
+# Этап сборки
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-# Устанавливаем рабочую директорию
+# Копируем файл проекта и восстанавливаем зависимости
+COPY ["QR-Code-generator.csproj", "./"]
+RUN dotnet restore QR-Code-generator.csproj
+
+# Копируем исходные файлы и компилируем проект
+COPY . . 
+RUN dotnet publish QR-Code-generator.csproj -c Release -o /out
+
+# Финальный этап
+FROM base AS final
 WORKDIR /app
-
-# Копируем файлы проекта в контейнер
-COPY . .
-
-# Сборка проекта
-RUN dotnet publish -c Release -r win-x64 --self-contained true -o /out
-
-# Финальный образ
-FROM mcr.microsoft.com/dotnet/runtime:8.0
-
-# Устанавливаем рабочую директорию
-WORKDIR /app
-
-# Копируем собранное приложение из предыдущего этапа
-COPY --from=build /out .
-
-# Устанавливаем точку входа для запуска приложения
-ENTRYPOINT ["QR-Code-generator.exe"]
+COPY --from=build /out . 
+ENTRYPOINT ["dotnet", "QR-Code-generator.dll"]
