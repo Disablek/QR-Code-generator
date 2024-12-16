@@ -1,0 +1,25 @@
+2024-12-16 00:18:45 [Information] Приложение запущено в 12/16/2024 00:18:45
+2024-12-16 00:18:45 [Information] Результат работы с базой данных: "Пример результата"
+2024-12-16 00:18:45 [Error] Произошла ошибка в процессе обработки запроса: a777a7c0-3d46-43ec-8bef-4a04b9110352
+System.Exception: Тестовая ошибка
+   at Program.Main(String[] args) in c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\Program.cs:line 38
+2024-12-16 00:20:12 [Information] Приложение запущено в 12/16/2024 00:20:12
+2024-12-16 00:20:12 [Information] Результат работы с базой данных: "Пример результата"
+2024-12-16 00:20:12 [Error] Произошла ошибка в процессе обработки запроса: 9b27540b-1927-46c4-b1ec-875c1cdfaf79
+System.Exception: Тестовая ошибка
+   at Program.Main(String[] args) in c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\Program.cs:line 38
+2024-12-16 00:20:36 [Information] Приложение запущено в 12/16/2024 00:20:36
+2024-12-16 00:20:37 [Information] Результат работы с базой данных: "Пример результата"
+2024-12-16 00:20:37 [Error] Произошла ошибка в процессе обработки запроса: 9b073ecc-0fbb-493a-8082-edd0e595f6e3
+System.Exception: Тестовая ошибка
+   at Program.Main(String[] args) in c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\Program.cs:line 38
+2024-12-16 01:00:36 [Information] Приложение запущено в 12/16/2024 01:00:36
+2024-12-16 01:00:36 [Information] Результат работы с базой данных: "Пример результата"
+2024-12-16 01:00:36 [Error] Произошла ошибка в процессе обработки запроса: db4daa81-4b99-4f5d-a600-f4146dc545ab
+System.Exception: Тестовая ошибка
+   at Program.Main(String[] args) in c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\Program.cs:line 38
+2024-12-16 01:12:06 [Information] Приложение запущено в 12/16/2024 01:12:06
+2024-12-16 01:12:06 [Information] Результат работы с базой данных: "Пример результата"
+2024-12-16 01:12:06 [Error] Произошла ошибка в процессе обработки запроса: bc557454-c0dd-4d37-ad39-5ffdc4ed26ec
+System.Exception: Тестовая ошибка
+   at Program.Main(String[] args) in c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\Program.cs:line 38

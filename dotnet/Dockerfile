@@ -1,64 +1,21 @@
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+# Устанавливаем базовые образы
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-windowsservercore-ltsc2022 AS base
 WORKDIR /app
 EXPOSE 80
 
-# Используем образ .NET SDK для сборки
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0-windowsservercore-ltsc2022 AS build
+WORKDIR /src
 
-# Устанавливаем рабочую директорию
-WORKDIR /app
+# Правильный путь к .csproj
+COPY ["QR-Code-generator/QR-Code-generator.csproj", "QR-Code-generator/"]
+RUN dotnet restore "QR-Code-generator/QR-Code-generator.csproj"
 
-# Копируем все файлы проекта в контейнер
 COPY . .
+WORKDIR "/src/QR-Code-generator"
+RUN dotnet publish "QR-Code-generator.csproj" -c Release -o /app
 
-# Сборка и публикация проекта
-RUN dotnet publish -c Release -o /out
-
-# Финальный образ для запуска
-FROM mcr.microsoft.com/dotnet/runtime:8.0
-
+# Финальный образ
+FROM base AS final
 WORKDIR /app
-
-# Установка системных библиотек, необходимых для SkiaSharp и Python
-RUN apt-get update && apt-get install -y \
-    libfontconfig1 \
-    libfreetype6 \
-    libx11-6 \
-    libxext6 \
-    libxrender1 \
-    libglib2.0-0 \
-    libc6 \
-    libgcc1 \
-    libstdc++6 \
-    libasound2 \
-    libpulse0 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxfixes3 \
-    libxcursor1 \
-    libxi6 \
-    libxrandr2 \
-    libpangocairo-1.0-0 \
-    libpango-1.0-0 \
-    libcairo2 \
-    libxinerama1 \
-    libgtk-3-0 \
-    python3 \
-    python3-pip \
-    python3-venv \
-    libpython3.11 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Создание виртуального окружения и установка библиотеки requests
-RUN python3 -m venv /venv \
-    && . /venv/bin/activate \
-    && pip install --no-cache-dir requests
-
-# Устанавливаем виртуальное окружение в PATH
-ENV PATH="/venv/bin:$PATH"
-
-# Копируем собранные файлы из предыдущего этапа
-COPY --from=build /out .
-
-# Команда для запуска приложения
+COPY --from=build /app .
 ENTRYPOINT ["dotnet", "QR-Code-generator.dll"]

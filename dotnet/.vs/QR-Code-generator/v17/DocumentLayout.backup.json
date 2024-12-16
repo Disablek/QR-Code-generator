@@ -1,41 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\",
+  "WorkspaceRootPath": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\qrcodemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\qrcodemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{492FEE75-84D3-490A-8378-98F24FAC0E7F}|..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\FrontEnd.csproj|c:\\users\\disable\\source\\repos\\disablek\\tests\\qr-code-generator\\frontend\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\lok.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\lok.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{492FEE75-84D3-490A-8378-98F24FAC0E7F}|..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\FrontEnd.csproj|c:\\users\\disable\\source\\repos\\disablek\\tests\\qr-code-generator\\frontend\\pages\\historypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{492FEE75-84D3-490A-8378-98F24FAC0E7F}|..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\FrontEnd.csproj|c:\\users\\disable\\source\\repos\\disablek\\tests\\qr-code-generator\\frontend\\pages\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{492FEE75-84D3-490A-8378-98F24FAC0E7F}|..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\FrontEnd.csproj|c:\\users\\disable\\source\\repos\\disablek\\tests\\qr-code-generator\\frontend\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentfiles\\any\\any\\clr.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\xui\\qr-code-generator\\dotnet\\qr-code-generator\\src\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\controllers\\qrcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\historymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\historymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\xui\\qr-code-generator\\dotnet\\qr-code-generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\source\\repos\\qr-code-generator\\qr-code-generator\\src\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\src\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\QRCodeModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|c:\\users\\disable\\xui\\qr-code-generator\\dotnet\\qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{04C3E001-3897-408B-A29E-A16D4BF7A732}|QR-Code-generator\\QR-Code-generator.csproj|solutionrelative:qr-code-generator\\qr-code-generator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,19 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -80,115 +73,138 @@
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "lok.py",
-              "DocumentMoniker": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\lok.py",
-              "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\lok.py",
-              "ToolTip": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\lok.py",
-              "RelativeToolTip": "QR-Code-generator\\src\\Models\\lok.py",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAIwCQAAAAQAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM5SURBVEhLtVVNSFRRFD7z85yGyZnUYZwxIrGUsCRSSrFFJlQriSCKCBdBLmZTlKCBi8xVzc5NiyREIqJVC6FctCgy6sWggyAVWDOpTaWpozO9mTfv53bue3fGMX3yLPrg45x33r3n3Pvd8\u002B6D/wpCiIW5eXR0dBDmmsXhgYGBMPPXYcMC/f397Glz9PT0SKIoTkuSdBGL8Cy8BlZm/woej4fr6uoq5TjuIS6skYXXwLAAz/OGLITP5yspKNLAwsagEgmCYIq9vb15PxqNLgaDwSmcv4el0vBPElGEQiGNQ0NDJTabzY\u002BhOv2NDjuz6/CnFIVobNTlRmk0m8Pg4GA4EomwJx2GO6BJNmJTUxOg3iAoFphNZCG2mIGltAp2u50euoNNz8NwB0ZYEUS4PfIeYvMrIKRFUGQZKUG52wF9504eGh8f59hQDVvuolhChjIXB6Hz9Sy5zpn5ZRgOf3G0tLTUsBQatiyRqhJ4/eEbdD54A6qiIGXdYpGUkIHi4uLtLIWGTbtIwYmUFqsVwtMpePQuDmPRn3C81g/NNT44UVcBnI2Ow13QIqoKx\u002BoTN0jyGSHS3CheRaWmuijhrob7L6byeq9Ko/t09ZolKoDwSp\u002BUmTwK3s6bpiQamYizVVLSXeX81RiVqrqczsS7UslggY8A8o/Tm0qUw\u002Bx8UltljjZcaaXXBVXlbqjyu2FvwANnmqvgQsMnTCpggTQSbTa\u002B2/A2LZToDi\u002BBLFE5JNhZ4oR77SI4yRS\u002Byd3saKU4Jk8BqCIyiwXQ\u002BrvNdVEF9jiVgEoRbHWBU3qJyb4iMak0CyB\u002BRrvMVo7M7aJo15IpiVoPBPKH6dkmsyhClXQpZJa40HdUA3CBJ6Ykoki7KyG\u002BkIS2g2nwkceYhElRVIu/LbwhCC2MTWl1ocXe3XFqDuzeI6b/aFb8FiwWCxSp2B0Ld/XkVG8FLVHQx3Nw4SVY0X0Lh48ieRyfNCURBf2I6BkQ7KFVrZksZZcBvJdwFU5tLCZ\u002BTpNrvhYpAN0BczfE9WtXJ/f53u6HxFO9SG4XrnqQAn1ZzuE5i8mH2fCtAz9/G/IKkZMR8mtCJqkxQrLfYxjjke3INjYUAfAb47MfvRyFLYgAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-11-13T13:08:53.562Z",
+              "Title": "HistoryPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml.cs",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T17:00:02.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "clr.py",
-              "DocumentMoniker": "C:\\Users\\Disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py",
-              "RelativeDocumentMoniker": "..\\..\\..\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py",
-              "ToolTip": "C:\\Users\\Disable\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "RelativeToolTip": "..\\..\\..\\.nuget\\packages\\quantconnect.pythonnet\\2.0.40\\contentFiles\\any\\any\\clr.py [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM5SURBVEhLtVVNSFRRFD7z85yGyZnUYZwxIrGUsCRSSrFFJlQriSCKCBdBLmZTlKCBi8xVzc5NiyREIqJVC6FctCgy6sWggyAVWDOpTaWpozO9mTfv53bue3fGMX3yLPrg45x33r3n3Pvd8\u002B6D/wpCiIW5eXR0dBDmmsXhgYGBMPPXYcMC/f397Glz9PT0SKIoTkuSdBGL8Cy8BlZm/woej4fr6uoq5TjuIS6skYXXwLAAz/OGLITP5yspKNLAwsagEgmCYIq9vb15PxqNLgaDwSmcv4el0vBPElGEQiGNQ0NDJTabzY\u002BhOv2NDjuz6/CnFIVobNTlRmk0m8Pg4GA4EomwJx2GO6BJNmJTUxOg3iAoFphNZCG2mIGltAp2u50euoNNz8NwB0ZYEUS4PfIeYvMrIKRFUGQZKUG52wF9504eGh8f59hQDVvuolhChjIXB6Hz9Sy5zpn5ZRgOf3G0tLTUsBQatiyRqhJ4/eEbdD54A6qiIGXdYpGUkIHi4uLtLIWGTbtIwYmUFqsVwtMpePQuDmPRn3C81g/NNT44UVcBnI2Ow13QIqoKx\u002BoTN0jyGSHS3CheRaWmuijhrob7L6byeq9Ko/t09ZolKoDwSp\u002BUmTwK3s6bpiQamYizVVLSXeX81RiVqrqczsS7UslggY8A8o/Tm0qUw\u002Bx8UltljjZcaaXXBVXlbqjyu2FvwANnmqvgQsMnTCpggTQSbTa\u002B2/A2LZToDi\u002BBLFE5JNhZ4oR77SI4yRS\u002Byd3saKU4Jk8BqCIyiwXQ\u002BrvNdVEF9jiVgEoRbHWBU3qJyb4iMak0CyB\u002BRrvMVo7M7aJo15IpiVoPBPKH6dkmsyhClXQpZJa40HdUA3CBJ6Ykoki7KyG\u002BkIS2g2nwkceYhElRVIu/LbwhCC2MTWl1ocXe3XFqDuzeI6b/aFb8FiwWCxSp2B0Ld/XkVG8FLVHQx3Nw4SVY0X0Lh48ieRyfNCURBf2I6BkQ7KFVrZksZZcBvJdwFU5tLCZ\u002BTpNrvhYpAN0BczfE9WtXJ/f53u6HxFO9SG4XrnqQAn1ZzuE5i8mH2fCtAz9/G/IKkZMR8mtCJqkxQrLfYxjjke3INjYUAfAb47MfvRyFLYgAAAAASUVORK5CYII=",
-              "WhenOpened": "2024-11-13T13:02:09.37Z",
-              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml.cs",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAE4BAAAAAAAAAAAkwFwBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T17:10:42.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "HistoryPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml",
+              "ToolTip": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\Pages\\HistoryPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-15T16:59:36.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-15T17:08:52.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "QR-Code-generator\\src\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs",
-              "RelativeToolTip": "QR-Code-generator\\src\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-11T09:17:10.548Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "UserModel.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs",
-              "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs",
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs",
-              "RelativeToolTip": "QR-Code-generator\\src\\Models\\UserModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T11:06:34.506Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "HistoryModel.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs",
-              "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\HistoryModel.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs",
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs",
-              "RelativeToolTip": "QR-Code-generator\\src\\Models\\HistoryModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T11:06:31.544Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\Program.cs",
               "RelativeDocumentMoniker": "QR-Code-generator\\Program.cs",
-              "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\Program.cs",
+              "ToolTip": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\Program.cs",
               "RelativeToolTip": "QR-Code-generator\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T11:06:03.731Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "QRCodeModel.cs",
               "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\QRCodeModel.cs",
-              "RelativeDocumentMoniker": "QR-Code-generator\\src\\Models\\QRCodeModel.cs",
-              "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\QRCodeModel.cs*",
-              "RelativeToolTip": "QR-Code-generator\\src\\Models\\QRCodeModel.cs*",
-              "ViewState": "AgIAABAAAAAAAAAAAAAqwBwAAAANAAAAAAAAAA==",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\QRCodeModel.cs",
+              "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\QRCodeModel.cs",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\QRCodeModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:00:22.83Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T11:00:22.83Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "QRCodeController.cs",
-              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
+              "DocumentMoniker": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
               "RelativeDocumentMoniker": "QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
-              "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
+              "ToolTip": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
               "RelativeToolTip": "QR-Code-generator\\src\\Controllers\\QRCodeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAgwFoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T11:00:22.054Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "QR-Code-generator.csproj",
-              "DocumentMoniker": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+              "DocumentMoniker": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
               "RelativeDocumentMoniker": "QR-Code-generator\\QR-Code-generator.csproj",
-              "ToolTip": "C:\\Users\\Disable\\Source\\Repos\\QR-Code-generator\\QR-Code-generator\\QR-Code-generator.csproj",
+              "ToolTip": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
               "RelativeToolTip": "QR-Code-generator\\QR-Code-generator.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-11-03T11:00:19.543Z",
               "EditorCaption": ""

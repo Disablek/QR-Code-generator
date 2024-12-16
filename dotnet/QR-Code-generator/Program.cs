@@ -6,17 +6,50 @@ using QRCodeGeneratorApp.Models;
 using QRCodeGeneratorApp.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.Sqlite;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Sinks.SystemConsole;
+
 
 class Program
-{   
+{
     static async Task Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}")
+            .WriteTo.Console(outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}")
+            .CreateLogger();
+
+        try
+        {
+            Log.Information("Приложение запущено в {Time}", DateTime.Now);
+            
+            // Эмуляция работы с базой данных
+            var result = await Task.Run(() => "Пример результата");
+            Log.Information("Результат работы с базой данных: {Result}", result);
+
+            // Исключение для демонстрации логирования ошибок
+            throw new Exception("Тестовая ошибка");
+
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Произошла ошибка в процессе обработки запроса: {RequestId}", Guid.NewGuid());
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
         // Настройка базы данных
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
         optionsBuilder.UseSqlite("Data Source=QRCodesDatabase.db");
-        
+
         using (var connection = new SqliteConnection("Data Source=QRCodesDatabase.db"))
         {
             connection.Open();
@@ -35,48 +68,84 @@ class Program
         }
 
         using var dbContext = new ApplicationDbContext(optionsBuilder.Options);
-        
+
         dbContext.Database.EnsureCreated();
 
-        var qrCodeService = new QRCodeService(dbContext);
-        var linkGeneratorService = new LinkGeneratorService(dbContext);
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddControllers();  // Добавляем поддержку контроллеров
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlite("Data Source=QRCodesDatabase.db"));
 
-        //1. Создание текстового QR-кода
-        Console.WriteLine("Создание текстового QR-кода...");
-        string textData = "https://example.com";
-        var textQr = qrCodeService.GenerateQRCode(textData, Color.Black, Color.White);
-        qrCodeService.SaveQRCodeToDatabase(textData, textQr);
+        // Регистрация сервисов
+        builder.Services.AddScoped<QRCodeService>();
+        builder.Services.AddScoped<LinkGeneratorService>();
 
-        // 2. Создание WiFi QR-кода
-        Console.WriteLine("Создание WiFi QR-кода...");
-        string wifiSSID = "MyWiFiNetwork";
-        string wifiPassword = "MySecurePassword";
-        string encryptionType = "WPA";
-        string wifiData = linkGeneratorService.GenerateWiFiLink(wifiSSID, wifiPassword, encryptionType);
-        var wifiQr = qrCodeService.GenerateQRCode(wifiData, Color.Black, Color.White);
-        qrCodeService.SaveQRCodeToDatabase(wifiData, wifiQr);
+        // builder.Logging.ClearProviders();
+        // builder.Logging.AddConsole();
+        // builder.Logging.SetMinimumLevel(LogLevel.Debug);
 
-        //3. Создание QR-кода для файла
-        Console.WriteLine("Создание QR-кода для файла...");
-        string fileName = "file_example_MP3_1MG.mp3";
-        int retentionDays = 1;
-        string fileLink = await linkGeneratorService.UploadFileToDropBox(fileName, retentionDays);
-        if (string.IsNullOrWhiteSpace(fileLink))
+        builder.Services.AddCors(options =>
         {
-            throw new Exception("Ссылка на файл пуста. Проверьте метод UploadFileToDropBox.");
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                      .AllowAnyMethod()
+                      .AllowAnyHeader();
+            });
+        });
+
+        builder.WebHost.UseUrls("http://0.0.0.0:5000"); // Позволяет принимать запросы на всех интерфейсах
+
+
+        var app = builder.Build();
+        app.Use(async (context, next) =>
+        {
+            try
+            {
+                await next.Invoke();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+                await context.Response.WriteAsync("Произошла ошибка на сервере");
+            }
+        });
+
+        app.UseRouting();
+        app.UseCors("AllowAll");
+        app.MapControllers();
+        app.MapFallback(() => Results.NotFound("Маршрут не найден"));
+
+        // Простой endpoint для проверки состояния
+        app.MapGet("/health", () =>
+        {
+            Console.WriteLine("Health check received");
+            return Results.Ok("Server is running");
+        });
+        app.MapGet("/", () => "Hello World!");
+
+        Console.WriteLine("Server is starting...");
+
+        // Запуск логирования каждую секунду в фоновом режиме
+        _ = Task.Run(() => StartLogging());
+        try
+        {
+            Console.WriteLine("Приложение запускается...");
+            await app.RunAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка при запуске приложения: {ex.Message}");
         }
 
-        
-        var fileQr = qrCodeService.GenerateQRCode(fileLink, Color.Black, Color.White);
-        qrCodeService.SaveQRCodeToDatabase(fileLink, fileQr);
+    }
 
-        // 4. Создание QR-кода с фото
-        // Console.WriteLine("Создание QR-кода с фото...");
-        // string imagePath = "/host_desktop/Desktop/sample_image.jpg";
-        // string imageLink = linkGeneratorService.GenerateLinkFromImage(imagePath);
-        // var imageQr = qrCodeService.GenerateQRCode(imageLink, Color.Black, Color.White);
-        // qrCodeService.SaveQRCodeToDatabase(imageLink, imageQr);
-
-        // Console.WriteLine("Все QR-коды успешно созданы и сохранены в базе данных!");
+    public static async Task StartLogging()
+    {
+        while (true)
+        {
+            Console.WriteLine($"[{DateTime.Now}] Сервер работает...");  // Логирование каждую секунду
+            await Task.Delay(10000); // Задержка в 1 секунду
+        }
     }
 }

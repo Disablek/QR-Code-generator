@@ -12,7 +12,7 @@ namespace QRCodeGeneratorApp.Services{
     public class LinkGeneratorService
     {
         private readonly ApplicationDbContext _context;
-        private const string DbPath = "FilesDatabase.db";
+        private const string DbPath = "QRCodesDatabase.db";
 
         public LinkGeneratorService(ApplicationDbContext context)
         {
@@ -30,43 +30,49 @@ namespace QRCodeGeneratorApp.Services{
         {
             string imageUrl = string.Empty;
 
-            Runtime.PythonDLL = "/usr/lib/x86_64-linux-gnu/libpython3.11.so.1.0";
-            PythonEngine.Initialize();
-
-            using (Py.GIL())
+            try
             {
-                // Добавляем путь к директории с lok.py в sys.path
-                dynamic sys = Py.Import("sys");
-                sys.path.append(@"/host_desktop/GitHub/Cursed/QR-Code-generator/python/");
+                // Указание пути к библиотеке Python
+                Runtime.PythonDLL = "/usr/lib/x86_64-linux-gnu/libpython3.11.so.1.0";
+                PythonEngine.Initialize();
 
-                // Импортируем скрипт lok и вызываем функцию createimgBB
-                var pythonscript = Py.Import("lok");
-                var message = new PyString(filepath);
-                var result = pythonscript.InvokeMethod("createimgBB", new PyObject[] { message });
-                imageUrl = result.ToString();
+                using (Py.GIL())
+                {
+                    // Добавляем путь к директории с локальным Python-скриптом
+                    dynamic sys = Py.Import("sys");
+                    sys.path.append("/app/python/");  // Путь к каталогу с вашими Python скриптами в контейнере
+
+                    // Импортируем скрипт lok и вызываем функцию createimgBB
+                    var pythonscript = Py.Import("lok");
+                    var message = new PyString(filepath);
+                    var result = pythonscript.InvokeMethod("createimgBB", new PyObject[] { message });
+                    imageUrl = result.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при генерации ссылки: {ex.Message}");
             }
 
             Console.WriteLine($"URL загруженного изображения: {imageUrl}");
             return imageUrl;
         }
 
+
         /*
         Создание Таблицы Files для отслеживания загрузки файлов в DropBox
         */
-        public async Task<string> UploadFileToDropBox(string fileName, int daysUntilDeletion)
+        public async Task<string> UploadFileToDropBox(IFormFile file, int daysUntilDeletion)
         {
             string accessToken = Environment.GetEnvironmentVariable("DROPBOX_ACCESS_TOKEN");
 
             if (string.IsNullOrEmpty(accessToken))
             {
                 Console.WriteLine("Переменная DROPBOX_ACCESS_TOKEN не найдена!");
-            }
-            else
-            {
-                Console.WriteLine($"Токен успешно получен: {accessToken}");
+                return "token";
             }
 
-            string localFilePath = @$"C:\Users\Disable\Desktop\{fileName}";
+            string fileName = file.FileName;
             string dropboxFilePath = $"/{fileName}";
 
             try
@@ -87,25 +93,23 @@ namespace QRCodeGeneratorApp.Services{
                 }
                 catch (Dropbox.Api.ApiException<Dropbox.Api.Files.GetMetadataError> ex)
                 {
-                    if (ex.ErrorResponse.IsPath)
+                    if (ex.ErrorResponse.IsPath && ex.ErrorResponse.AsPath.Value.IsNotFound)
                     {
-                        // Переименовать файл, если он существует
-                        string newFileName = $"{Path.GetFileNameWithoutExtension(fileName)}_{Guid.NewGuid()}{Path.GetExtension(fileName)}";
-                        dropboxFilePath = $"/{newFileName}";
-                        Console.WriteLine($"Переименованный файл: {dropboxFilePath}");
+                        Console.WriteLine($"Файл {fileName} не найден, продолжаем загрузку.");
                     }
                     else
                     {
                         Console.WriteLine("Ошибка при проверке существующего файла: " + ex.Message);
+                        return "fuck";
                     }
                 }
 
                 // Загрузка файла
-                using var fileStream = File.OpenRead(localFilePath);
+                using var stream = file.OpenReadStream();
                 var uploadResponse = await dbx.Files.UploadAsync(
                     path: dropboxFilePath,
                     mode: WriteMode.Overwrite.Instance,
-                    body: fileStream);
+                    body: stream);
 
                 var sharedLinkResponse = await dbx.Sharing.CreateSharedLinkWithSettingsAsync(dropboxFilePath);
                 string dropboxLink = sharedLinkResponse.Url;
@@ -116,7 +120,7 @@ namespace QRCodeGeneratorApp.Services{
                 await SaveFileInfoToDatabase(
                     fileName,
                     DateTime.Now,
-                    DateTime.Now.AddMinutes(daysUntilDeletion*5),
+                    DateTime.Now.AddMinutes(daysUntilDeletion * 5),
                     dropboxLink);
 
                 return dropboxLink;
@@ -124,7 +128,7 @@ namespace QRCodeGeneratorApp.Services{
             catch (Exception ex)
             {
                 Console.WriteLine($"Ошибка: {ex.Message}");
-                return null;
+                return "error";
             }
         }
 
@@ -143,12 +147,12 @@ namespace QRCodeGeneratorApp.Services{
             string selectQuery = @"
                 SELECT *
                 FROM Files 
-                WHERE DeletionDate <= @CurrentDate";
+                WHERE datetime(DeletionDate) <= datetime(@CurrentDate)";
 
             using var selectCommand = new Microsoft.Data.Sqlite.SqliteCommand(selectQuery, connection);
-            selectCommand.Parameters.AddWithValue("@CurrentDate", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"));
+            selectCommand.Parameters.AddWithValue("@CurrentDate", DateTime.Now);
+            Console.WriteLine("Текущее время UTC: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
-            // Выполнение запроса
             using var reader = selectCommand.ExecuteReader();
 
             if (!reader.HasRows)
@@ -164,12 +168,11 @@ namespace QRCodeGeneratorApp.Services{
 
                 try
                 {
-                    // Удаление файла из Dropbox
                     string dropboxFilePath = $"/{fileName}";
                     try
                     {
+                        // Удаление файла из Dropbox
                         var metadata = await dbx.Files.GetMetadataAsync(dropboxFilePath);
-                        // Если файл найден, удаляем его
                         await dbx.Files.DeleteV2Async(dropboxFilePath);
                         Console.WriteLine($"Файл {fileName} удалён из Dropbox.");
                     }
@@ -184,8 +187,6 @@ namespace QRCodeGeneratorApp.Services{
                             Console.WriteLine($"Ошибка удаления {fileName} из Dropbox: {ex.Message}");
                         }
                     }
-
-                    Console.WriteLine($"Файл {fileName} удалён из Dropbox.");
                 }
                 catch (Exception ex)
                 {
@@ -197,13 +198,14 @@ namespace QRCodeGeneratorApp.Services{
             string deleteQuery = @"
                 DELETE FROM Files 
                 WHERE datetime(DeletionDate) <= datetime(@CurrentDate)";
-            
+
             using var deleteCommand = new Microsoft.Data.Sqlite.SqliteCommand(deleteQuery, connection);
-            deleteCommand.Parameters.AddWithValue("@CurrentDate", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"));
+            deleteCommand.Parameters.AddWithValue("@CurrentDate", DateTime.Now);
 
             int deletedRows = deleteCommand.ExecuteNonQuery();
             Console.WriteLine($"Удалено записей из базы данных: {deletedRows}");
         }
+
 
 
         // Убедимся, что таблица Files существует

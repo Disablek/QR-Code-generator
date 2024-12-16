@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj": {}
+    "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj": {
+    "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
+        "projectUniqueName": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
         "projectName": "QR-Code-generator",
-        "projectPath": "c:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
+        "projectPath": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\QR-Code-generator.csproj",
         "packagesPath": "C:\\Users\\Disable\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Disable\\GitHub\\Cursed\\QR-Code-generator\\dotnet\\QR-Code-generator\\obj\\",
+        "outputPath": "C:\\Users\\Disable\\XUI\\QR-Code-generator\\dotnet\\QR-Code-generator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,15 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0-windows"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0-windows7.0": {
-            "targetAlias": "net8.0-windows",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -42,36 +42,44 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         }
       },
       "frameworks": {
-        "net8.0-windows7.0": {
-          "targetAlias": "net8.0-windows",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Dropbox.Api": {
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "Microsoft.AspNetCore": {
+            "JetBrains.Annotations": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2024.3.0, )"
             },
-            "Microsoft.AspNetCore.Mvc": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.Data.Sqlite": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
+            "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
             "QuantConnect.pythonnet": {
               "target": "Package",
               "version": "[2.0.40, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "SkiaSharp": {
               "target": "Package",
@@ -80,6 +88,10 @@
             "SkiaSharp.NativeAssets.Linux": {
               "target": "Package",
               "version": "[2.88.3, )"
+            },
+            "SkiaSharp.QrCode": {
+              "target": "Package",
+              "version": "[0.7.0, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
@@ -105,12 +117,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.101, 9.0.101]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
