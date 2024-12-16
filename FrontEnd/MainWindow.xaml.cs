@@ -1,28 +1,60 @@
 ﻿using System;
-using System.Windows;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Xceed.Wpf.Toolkit;
+using System.Windows;
 using System.Windows.Controls;
-using System.IO;
 using System.Windows.Media.Imaging;
-using System.Windows.Media;
-using System.Drawing;
 using System.Windows.Threading;
+using FrontEnd.Pages;
+using Serilog;
+using Serilog.Sinks.SystemConsole;
+using Serilog.Sinks.File;
+using Image = System.Windows.Controls.Image;
+using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
 namespace FrontEnd
 {
     public partial class MainWindow : Window
     {
-        private string _currentLanguage = "ru";
-        private HttpClient _httpClient; // Убираем создание нового клиента здесь
-        private byte[] QRImage;
+        private const int DebounceInterval = 150; // Задержка в миллисекундах перед вызовом метода
 
-        private DispatcherTimer _debounceTimer;
-        private const int DebounceInterval = 50; // Задержка в миллисекундах перед вызовом метода
+        private readonly DispatcherTimer _debounceTimer;
+        private readonly HttpClient _httpClient; // Убираем создание нового клиента здесь
+        private string _currentLanguage = "ru";
+        private Bitmap QRImage;
 
         public MainWindow()
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File(@"C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\logs\\log.txt", rollingInterval: RollingInterval.Day,
+                    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}")
+                .WriteTo.Console(
+                    outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}")
+                .CreateLogger();
+
+            try
+            {
+                Log.Information("Приложение запущено в {Time}", DateTime.Now);
+
+                // Эмуляция работы с базой данных
+                var result = Task.Run(() => "Пример результата");
+                Log.Information("Результат работы с базой данных: {Result}", result);
+
+                // Исключение для демонстрации логирования ошибок
+                throw new Exception("Тестовая ошибка");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Произошла ошибка в процессе обработки запроса: {RequestId}", Guid.NewGuid());
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
+
             //Console.OutputEncoding = Encoding.UTF8;
             InitializeComponent();
             _httpClient = new HttpClient
@@ -41,122 +73,164 @@ namespace FrontEnd
 
         private void ButtonQRText_Click(object sender, RoutedEventArgs e)
         {
+            Log.Information("Пользователь нажал кнопку для генерации QR-кода с текстом.");
             ContentFrame.Navigate(new TextPage());
         }
 
         private void ButtonQRWiFi_Click(object sender, RoutedEventArgs e)
         {
+            Log.Information("Пользователь нажал кнопку для генерации QR-кода для WiFi.");
             ContentFrame.Navigate(new WiFiPage());
         }
 
         private void ButtonQRFile_Click(object sender, RoutedEventArgs e)
         {
+            Log.Information("Пользователь нажал кнопку для генерации QR-кода для файла.");
             ContentFrame.Navigate(new FilePage());
         }
 
         private void ButtonQRURL_Click(object sender, RoutedEventArgs e)
         {
+            Log.Information("Пользователь нажал кнопку для генерации QR-кода для URL.");
             ContentFrame.Navigate(new LinkPage());
         }
 
         private void ButtonQRPhoto_Click(object sender, RoutedEventArgs e)
         {
+            Log.Information("Пользователь нажал кнопку для генерации QR-кода с фото.");
             ContentFrame.Navigate(new PhotoPage());
         }
 
         private async void ButtonGenerateQR_Click(object sender, RoutedEventArgs e)
         {
-
-            // Получаем ссылку на активную страницу
-            Page activePage = ContentFrame.Content as Page;
-            string QRERROR = Application.Current.Resources["QRCodeGenerateError"] as String;
-            if (string.IsNullOrEmpty(QRERROR))
+            try
             {
-                QRERROR = "Сообщение об ошибке не найдено"; // Резервное сообщение
-            }
+                Log.Information("Запущена генерация QR-кода.");
+                // Получаем ссылку на активную страницу
+                var activePage = ContentFrame.Content as Page;
+                var QRERROR = Application.Current.Resources["QRCodeGenerateError"] as string;
+                if (string.IsNullOrEmpty(QRERROR)) QRERROR = "Сообщение об ошибке не найдено"; // Резервное сообщение
 
-            if (activePage == null)
-            {
-                Xceed.Wpf.Toolkit.MessageBox.Show($"{QRERROR}", "Ошибка!");
-                return;
-            }
-            string pageName = activePage.GetType().Name;
-            string data = null;
-            QRCodeClient qrCodeClient = new QRCodeClient(_httpClient);
-
-
-            if (pageName == "TextPage" || pageName == "LinkPage")
-            {
-                // Ищем элемент на активной странице по имени
-                TextBox myTextBox = activePage.FindName("userInput") as TextBox;
-                data = myTextBox.Text.ToString();
-            }
-            else if (pageName == "WiFiPage")
-            {
-                // Ищем элементы TextBox на активной странице
-                string ssidInput = (activePage.FindName("userInput") as TextBox).Text.ToString();
-                string passwordInput = (activePage.FindName("PasswordInput") as TextBox).Text.ToString();
-
-                RadioButton radioButton1 = activePage.FindName("WPA_WPA2") as RadioButton;
-                RadioButton radioButton2 = activePage.FindName("WEP") as RadioButton;
-                RadioButton radioButton3 = activePage.FindName("None") as RadioButton;
-                string encryption = null;
-
-                // Проверяем, какой из RadioButton выбран
-                if (radioButton1 != null && radioButton1.IsChecked == true)
+                if (activePage == null)
                 {
-                    encryption = "WPA/WPA2";
-                }
-                else if (radioButton2 != null && radioButton2.IsChecked == true)
-                {
-                    encryption = "WEP";
-                }
-                else if (radioButton3 != null && radioButton3.IsChecked == true)
-                {
-                    encryption = "None";
-                }
-                else
-                {
-                    Console.WriteLine("Никакая опция не выбрана");
+                    Log.Warning("Активная страница не найдена.");
+                    MessageBox.Show($"{QRERROR}", "Ошибка!");
                     return;
                 }
+
+                var pageName = activePage.GetType().Name;
+                string data = null;
+                var qrCodeClient = new QRCodeClient(_httpClient);
+
                 // Запускаем анимацию ожидания
-                ShowWaitingAnimationAsync(true);
-                // Генерация QR-кода через API
-                data = await qrCodeClient.GenerateWiFiLinkAsync(ssidInput,passwordInput,encryption);
-                ShowWaitingAnimationAsync(false);  
-            }
+                ShowWaitingAnimationAsync(true, true);
+                if (pageName == "TextPage" || pageName == "LinkPage")
+                {
+                    // Ищем элемент на активной странице по имени
+                    var myTextBox = activePage.FindName("userInput") as TextBox;
+                    data = myTextBox.Text;
+                }
+                else if (pageName == "WiFiPage")
+                {
+                    Log.Information("Генерация QR-кода для WiFi.");
+                    // Ищем элементы TextBox на активной странице
+                    var ssidInput = (activePage.FindName("userInput") as TextBox).Text;
+                    var passwordInput = (activePage.FindName("PasswordInput") as TextBox).Text;
 
-            // Если данных нет, то выводим сообщение
-            if (string.IsNullOrEmpty(data))
+                    var radioButton1 = activePage.FindName("WPA_WPA2") as RadioButton;
+                    var radioButton2 = activePage.FindName("WEP") as RadioButton;
+                    var radioButton3 = activePage.FindName("None") as RadioButton;
+                    string encryption = null;
+
+                    // Проверяем, какой из RadioButton выбран
+                    if (radioButton1 != null && radioButton1.IsChecked == true)
+                    {
+                        encryption = "WPA/WPA2";
+                    }
+                    else if (radioButton2 != null && radioButton2.IsChecked == true)
+                    {
+                        encryption = "WEP";
+                    }
+                    else if (radioButton3 != null && radioButton3.IsChecked == true)
+                    {
+                        encryption = "None";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Никакая опция не выбрана");
+                        return;
+                    }
+
+                    // Генерация QR-кода через API
+                    data = await qrCodeClient.GenerateWiFiLinkAsync(ssidInput, passwordInput, encryption);
+                }
+                else if (pageName == "FilePage")
+                {
+                    var fileName = (activePage.FindName("filePath") as Label).Content.ToString();
+                    var daysTillDeleting = int.Parse((activePage.FindName("daysCount") as TextBox).Text);
+
+                    // Запускаем анимацию ожидания
+                    ShowWaitingAnimationAsync(true, true);
+                    data = await qrCodeClient.UploadFileAsync(fileName, daysTillDeleting);
+                }
+                else if (pageName == "PhotoPage")
+                {
+                    var fileLink = (activePage.FindName("fileLink") as Label).Content.ToString();
+                    ShowWaitingAnimationAsync(true, true);
+                    data = await qrCodeClient.GenerateImageLinkAsync(fileLink);
+                } 
+                else
+                {
+                    ShowWaitingAnimationAsync(false, true);
+                    return;
+                }
+
+                ShowWaitingAnimationAsync(false, true);
+
+                // Если данных нет, то выводим сообщение
+                if (string.IsNullOrEmpty(data))
+                {
+                    Log.Warning("Не получены данные для генерации QR-кода.");
+                    MessageBox.Show("Пожалуйста, введите данные для генерации QR-кода.", "Ошибка!");
+                    return;
+                }
+
+                // Запускаем анимацию ожидания
+                ShowWaitingAnimationAsync(true, true);
+
+                // Генерируем QR-код
+                await GenerateQRCode(data, qrCodeClient);
+                // Останавливаем анимацию после завершения генерации QR-кода
+
+                ShowWaitingAnimationAsync(false, true);
+            }
+            catch (Exception ex)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show("Пожалуйста, введите данные для генерации QR-кода.", "Ошибка!");
-                return;
+                Log.Error(ex, "Ошибка при генерации QR-кода.");
+                MessageBox.Show($"{ex}", "Ошибка!");
+                ShowWaitingAnimationAsync(false, true);
             }
-
-            // Запускаем анимацию ожидания
-            ShowWaitingAnimationAsync(true);
-
-            // Генерируем QR-код
-            await GenerateQRCode(data, qrCodeClient);
-            // Останавливаем анимацию после завершения генерации QR-кода
-
-            colorPicker.Visibility= Visibility.Visible;
-            ShowWaitingAnimationAsync(false);
         }
 
-        private void ShowWaitingAnimationAsync(bool action)
+        public void ShowWaitingAnimationAsync(bool action, bool which)
         {
-            if (action)
+            if (which)
             {
-                // Запуск анимации
-                AnimationImage.Visibility = Visibility.Visible;
+                if (action)
+                    // Запуск анимации
+                    AnimationImage.Visibility = Visibility.Visible;
+                else
+                    // Остановка анимации
+                    AnimationImage.Visibility = Visibility.Hidden;
             }
             else
             {
-                // Остановка анимации
-                AnimationImage.Visibility = Visibility.Hidden;
-
+                if (action)
+                    // Запуск анимации
+                    AnimationImage2.Visibility = Visibility.Visible;
+                else
+                    // Остановка анимации
+                    AnimationImage2.Visibility = Visibility.Hidden;
             }
         }
 
@@ -167,7 +241,7 @@ namespace FrontEnd
             Resources.MergedDictionaries.Clear();
 
             // Определить путь к новому словарю
-            string newDictionaryPath = _currentLanguage == "ru"
+            var newDictionaryPath = _currentLanguage == "ru"
                 ? "Dictianory/Resources.en.xaml"
                 : "Dictianory/Resources.ru.xaml";
 
@@ -184,94 +258,78 @@ namespace FrontEnd
             _currentLanguage = _currentLanguage == "ru" ? "en" : "ru";
         }
 
-        // Метод для отображения изображения QR-кода
-        public void DisplayImageFromByteArray(byte[] imageData, System.Windows.Controls.Image imageControl, System.Drawing.Color color)
+        public void DisplayImageFromFile(string filePath, Image imageControl)
         {
             try
             {
-                // Преобразуем байты в изображение
-                using (var stream = new MemoryStream(imageData))
+                var bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri(filePath, UriKind.Absolute); // Используем абсолютный путь
+                bitmapImage.EndInit();
+
+                // Обновление UI в главном потоке
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    // Создаем Bitmap из потока
-                    Bitmap bitmap = new Bitmap(stream);
-
-                    // Обрабатываем пиксели
-                    for (int y = 0; y < bitmap.Height; y++)
-                    {
-                        for (int x = 0; x < bitmap.Width; x++)
-                        {
-                            System.Drawing.Color pixelColor = bitmap.GetPixel(x, y);
-
-                            // Проверяем, является ли пиксель черным
-                            if (pixelColor.R == 0 && pixelColor.G == 0 && pixelColor.B == 0)
-                            {
-                                // Заменяем черный на нужный цвет
-                                bitmap.SetPixel(x, y, color);
-                            }
-                        }
-                    }
-
-                    // Преобразуем Bitmap обратно в BitmapImage
-                    using (MemoryStream memoryStream = new MemoryStream())
-                    {
-                        bitmap.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
-                        memoryStream.Seek(0, SeekOrigin.Begin);
-
-                        BitmapImage modifiedBitmapImage = new BitmapImage();
-                        modifiedBitmapImage.BeginInit();
-                        modifiedBitmapImage.StreamSource = memoryStream;
-                        modifiedBitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                        modifiedBitmapImage.EndInit();
-
-                        // Отображаем измененное изображение
-                        imageControl.Source = modifiedBitmapImage;
-                    }
-                }
+                    imageControl.Source = bitmapImage;
+                });
             }
             catch (Exception ex)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show($"Ошибка при отображении изображения: {ex.Message}", "Ошибка!");
+                Log.Error(ex, "Ошибка при обработке изображения.");
+                MessageBox.Show($"Ошибка при отображении изображения: {ex.Message}", "Ошибка!");
             }
         }
 
 
-
-        // Метод для генерации QR-кода
         private async Task GenerateQRCode(string data, QRCodeClient qrCodeClient)
         {
-
             try
             {
-                // Генерация QR-кода через API
-                var response = await qrCodeClient.GenerateQRCodeAsync(data);
+                QRImage = await qrCodeClient.GenerateQRCodeAsync(data);
 
-                if (response.ImageBytes != null)
+                if (QRImage != null)
                 {
-                    QRImage = response.ImageBytes;
+                    // Путь для сохранения изображения
+                    string filePath = @"C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\FrontEnd\\QRCodeTest.png";
 
-                    // Получаем выбранный цвет
-                    var selectedColor = colorPicker.SelectedColor;
-                    // Преобразуем System.Windows.Media.Color в System.Drawing.Color
-                    System.Drawing.Color drawingColor = System.Drawing.Color.FromArgb(selectedColor.Value.A, selectedColor.Value.R, selectedColor.Value.G, selectedColor.Value.B);
+                    // Сохраняем изображение на диск
+                    SaveQRCodeImage(QRImage, filePath);
 
-                    // Используем DisplayImageFromByteArray для отображения изображения
-                    DisplayImageFromByteArray(QRImage, QRCodeImageContainer, drawingColor);
+                    // Отображаем изображение из файла
+                    DisplayImageFromFile(filePath, QRCodeImageContainer);
+
+                    colorPicker.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    Xceed.Wpf.Toolkit.MessageBox.Show(response.Message, "Ошибка!");
+                    MessageBox.Show("Пусто", "Ошибка!");
                 }
             }
             catch (Exception ex)
             {
-                Xceed.Wpf.Toolkit.MessageBox.Show($"Ошибка при генерации QR-кода: {ex.Message}", "Ошибка!");
+                MessageBox.Show($"Ошибка при генерации QR-кода: {ex.Message}", "Ошибка!");
             }
         }
 
 
 
+        private void SaveQRCodeImage(System.Drawing.Bitmap qrImage, string filePath)
+        {
+            try
+            {
+                qrImage.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
+                Log.Information($"Изображение QR-кода сохранено в: {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Ошибка при сохранении изображения QR-кода.");
+            }
+        }
+
+
         // Обработчик изменения цвета в ColorPicker
-        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<System.Windows.Media.Color?> e)
+        private void ColorPicker_SelectedColorChanged(object sender,
+            RoutedPropertyChangedEventArgs<System.Windows.Media.Color?> e)
         {
             // Добавляем проверку на null
             if (_debounceTimer != null)
@@ -297,7 +355,12 @@ namespace FrontEnd
             if (selectedColor.HasValue)
             {
                 // Преобразуем System.Windows.Media.Color в System.Drawing.Color
-                System.Drawing.Color drawingColor = System.Drawing.Color.FromArgb(selectedColor.Value.A, selectedColor.Value.R, selectedColor.Value.G, selectedColor.Value.B);
+                var drawingColor = System.Drawing.Color.FromArgb(
+                    selectedColor.Value.A,  // Альфа-канал
+                    selectedColor.Value.R,  // Красный
+                    selectedColor.Value.G,  // Зеленый
+                    selectedColor.Value.B   // Синий
+                );
 
                 // Вызовите метод, который нужно вызвать при изменении цвета
                 ChangeColor(drawingColor);
@@ -305,10 +368,94 @@ namespace FrontEnd
         }
 
 
+
         // Метод, который будет вызван после изменения цвета
         private void ChangeColor(System.Drawing.Color newColor)
         {
-            DisplayImageFromByteArray(QRImage, QRCodeImageContainer, newColor);
+            if (QRImage == null) return;
+
+            // Создаем новый объект Bitmap на основе исходного изображения
+            using (var newBitmap = new System.Drawing.Bitmap(QRImage))
+            {
+                // Получаем данные изображения для прямого доступа к пикселям
+                var rect = new System.Drawing.Rectangle(0, 0, newBitmap.Width, newBitmap.Height);
+                var bitmapData = newBitmap.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite, newBitmap.PixelFormat);
+
+                // Получаем указатель на массив данных пикселей
+                IntPtr ptr = bitmapData.Scan0;
+
+                // Количество байтов, занимаемых одним пикселем (в зависимости от формата)
+                int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(newBitmap.PixelFormat) / 8;
+
+                // Массив для хранения данных пикселей
+                byte[] pixels = new byte[bitmapData.Stride * newBitmap.Height];
+
+                // Копируем данные пикселей в массив
+                System.Runtime.InteropServices.Marshal.Copy(ptr, pixels, 0, pixels.Length);
+
+                // Проходим по каждому пикселю
+                for (int y = 0; y < newBitmap.Height; y++)
+                {
+                    for (int x = 0; x < newBitmap.Width; x++)
+                    {
+                        // Индекс пикселя в массиве
+                        int pixelIndex = (y * bitmapData.Stride) + (x * bytesPerPixel);
+
+                        // Извлекаем цвет пикселя
+                        byte blue = pixels[pixelIndex];
+                        byte green = pixels[pixelIndex + 1];
+                        byte red = pixels[pixelIndex + 2];
+
+                        // Если пиксель черный (или близкий к черному), меняем его на новый цвет
+                        if (red == 0 && green == 0 && blue == 0)
+                        {
+                            // Заменяем на новый цвет
+                            pixels[pixelIndex] = newColor.B;     // Синий канал
+                            pixels[pixelIndex + 1] = newColor.G; // Зеленый канал
+                            pixels[pixelIndex + 2] = newColor.R; // Красный канал
+                        }
+                    }
+                }
+
+                // Копируем измененные данные обратно в изображение
+                System.Runtime.InteropServices.Marshal.Copy(pixels, 0, ptr, pixels.Length);
+
+                // Разблокируем доступ к пикселям
+                newBitmap.UnlockBits(bitmapData);
+
+                // Генерация временного имени для файла
+                string tempFilePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + ".png");
+
+                // Сохраняем измененное изображение во временный файл
+                newBitmap.Save(tempFilePath, System.Drawing.Imaging.ImageFormat.Png);
+
+                // Обновляем отображение изображения в интерфейсе
+                DisplayImageFromFile(tempFilePath, QRCodeImageContainer);
+            }
+        }
+
+
+
+
+
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Проверяем, существует ли Frame на странице
+            if (ContentFrame2.Visibility == Visibility.Visible)
+            {
+                // Если Frame видим, скрываем его
+                ContentFrame2.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                //// Показываем Frame
+                ContentFrame2.Visibility = Visibility.Visible;
+                var page = new HistoryPage(this);
+                ContentFrame2.Navigate(page);
+
+                await page.LoadQRCodeHistory(); // Загрузка первых 20 записей
+            }
         }
     }
 }

@@ -1,0 +1,5 @@
+2024-12-16 12:07:36 [Information] Приложение запущено в 12/16/2024 12:07:36
+2024-12-16 12:07:36 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-16 12:07:36 [Error] Произошла ошибка в процессе обработки запроса: 1c353d6f-c596-4d03-9aab-fbc224c5ea3a
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47

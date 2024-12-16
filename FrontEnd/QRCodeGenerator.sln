@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd.csproj", "{492FEE75-84D3-490A-8378-98F24FAC0E7F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QR-Code-generator", "..\dotnet\QR-Code-generator\QR-Code-generator.csproj", "{A214505F-2486-4FF6-98A8-265B0FE7D5EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QR-Code-generator", "..\..\..\..\..\..\XUI\QR-Code-generator\dotnet\QR-Code-generator\QR-Code-generator.csproj", "{7B9180F2-F07F-4CF5-BC8D-75F0642921F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QR-Code-generator.Testes", "..\..\..\..\..\..\XUI\QR-Code-generator\dotnet\QR-Code-generator.Testes\QR-Code-generator.Testes.csproj", "{8D7409EA-6DC4-48CD-8375-BE3563359FE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{492FEE75-84D3-490A-8378-98F24FAC0E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492FEE75-84D3-490A-8378-98F24FAC0E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492FEE75-84D3-490A-8378-98F24FAC0E7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A214505F-2486-4FF6-98A8-265B0FE7D5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A214505F-2486-4FF6-98A8-265B0FE7D5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A214505F-2486-4FF6-98A8-265B0FE7D5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A214505F-2486-4FF6-98A8-265B0FE7D5EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B9180F2-F07F-4CF5-BC8D-75F0642921F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B9180F2-F07F-4CF5-BC8D-75F0642921F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B9180F2-F07F-4CF5-BC8D-75F0642921F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B9180F2-F07F-4CF5-BC8D-75F0642921F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D7409EA-6DC4-48CD-8375-BE3563359FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7409EA-6DC4-48CD-8375-BE3563359FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7409EA-6DC4-48CD-8375-BE3563359FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7409EA-6DC4-48CD-8375-BE3563359FE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

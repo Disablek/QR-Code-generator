@@ -1,7 +1,7 @@
 ﻿FrontEnd
 
 
-winexe
+exe
 C#
 .cs
 C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\obj\Debug\
@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\App.xaml
-8-758684966
+9587774773
 
-1352263462
-33-587135369
-Dictianory\Resources.en.xaml;Dictianory\Resources.ru.xaml;Pages\FilePage.xaml;Pages\LinkPage.xaml;MainWindow.xaml;Pages\PhotoPage.xaml;Pages\WiFiPage.xaml;Pages\TextPage.xaml;
+14-1318353249
+42-626838632
+Dictianory\Resources.en.xaml;Dictianory\Resources.ru.xaml;Pages\FilePage.xaml;Pages\HistoryPage.xaml;Pages\LinkPage.xaml;MainWindow.xaml;Pages\PhotoPage.xaml;Pages\WiFiPage.xaml;Pages\TextPage.xaml;
 
-True
+False
 

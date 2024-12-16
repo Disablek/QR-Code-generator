@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using Newtonsoft.Json;
+using Serilog;
+using Xceed.Wpf.Toolkit;
 
 namespace FrontEnd
 {
@@ -14,12 +20,11 @@ namespace FrontEnd
         public QRCodeClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
         }
 
 
         // Генерация QR-кода
-        public async Task<QRCodeGenerationResponse> GenerateQRCodeAsync(string data)
+        public async Task<Bitmap> GenerateQRCodeAsync(string data)
         {
             var qrCodeRequest = new
             {
@@ -36,39 +41,49 @@ namespace FrontEnd
                 // Проверяем статус ответа
                 if (!response.IsSuccessStatusCode)
                 {
-                    // Возвращаем ошибку, если статус не успешен
-                    return new QRCodeGenerationResponse
-                    {
-                        Message = $"Ошибка: {response.StatusCode}, {await response.Content.ReadAsStringAsync()}"
-                    };
-                }
-                else
-                {
-                    // Чтение байтов изображения из ответа
-                    var imageBytes = await response.Content.ReadAsByteArrayAsync();
-                    return new QRCodeGenerationResponse
-                    {
-                        ImageBytes = imageBytes,
-                        Message = "QR-код успешно сгенерирован!"
-                    };
+                    return null;
                 }
 
+                // Чтение байтов изображения из ответа
+                var imageBytes = await response.Content.ReadAsByteArrayAsync();
+
+                // Если байты пустые, это может указывать на проблему с ответом
+                if (imageBytes == null || imageBytes.Length == 0)
+                {
+                    Console.WriteLine("Received empty byte array for the QR code image.");
+                    return null;
+                }
+
+                // Преобразуем байты изображения в Bitmap
+                using (var ms = new MemoryStream(imageBytes))
+                {
+                    try
+                    {
+                        var bitmap = new System.Drawing.Bitmap(ms);
+                        return bitmap;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Логируем ошибку при создании Bitmap
+                        Console.WriteLine($"Ошибка при создании Bitmap: {ex.Message}");
+                        return null;
+                    }
+                }
             }
             catch (HttpRequestException httpEx)
             {
-                return new QRCodeGenerationResponse
-                {
-                    Message = $"Ошибка запроса: {httpEx.Message}"
-                };
+                // Логируем ошибку HTTP-запроса
+                Console.WriteLine($"Ошибка HTTP-запроса: {httpEx.Message}");
+                return null;
             }
             catch (Exception ex)
             {
-                return new QRCodeGenerationResponse
-                {
-                    Message = $"Ошибка: {ex.Message}"
-                };
+                // Логируем любые другие ошибки
+                Console.WriteLine($"Ошибка: {ex.Message}");
+                return null;
             }
         }
+
 
 
         // Генерация ссылки на Wi-Fi
@@ -88,69 +103,92 @@ namespace FrontEnd
 
             if (response.IsSuccessStatusCode)
             {
-                string result = await response.Content.ReadAsStringAsync();
+                var result = await response.Content.ReadAsStringAsync();
                 return result;
             }
-            else
-            {
-                Console.WriteLine("Ошибка при генерации Wi-Fi ссылки!");
-                return null;
-            }
+
+            Console.WriteLine("Ошибка при генерации Wi-Fi ссылки!");
+            return null;
         }
 
         // Генерация ссылки на изображение
-        public async Task GenerateImageLinkAsync(string filePath)
+        public async Task<string> GenerateImageLinkAsync(string filePath)
         {
-            var imageRequest = new
+            using (var form = new MultipartFormDataContent())
             {
-                FilePath = filePath
-            };
+                // Читаем файл в поток
+                using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    var fileContent = new StreamContent(fileStream);
+                    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
-            var jsonContent = JsonConvert.SerializeObject(imageRequest);
-            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                    // Добавляем файл в форму
+                    form.Add(fileContent, "file", Path.GetFileName(filePath));
 
-            var response = await _httpClient.PostAsync("generateImageLink", content);
+                    // Отправляем POST-запрос
+                    var response = await _httpClient.PostAsync("generateImageLink", form);
 
-            if (response.IsSuccessStatusCode)
-            {
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Ссылка на изображение: {result}");
-            }
-            else
-            {
-                Console.WriteLine("Ошибка при генерации ссылки на изображение!");
+                    // Читаем ответ
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Ссылка на изображение: {result}");
+                        return result;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка при генерации ссылки на изображение!");
+                        return null;
+                    }
+                }
             }
         }
 
+
+
         // Загрузка файла в Dropbox
-        public async Task UploadFileAsync(string fileName, int daysUntilDeletion)
+        public async Task<string> UploadFileAsync(string filePath, int daysUntilDeletion)
         {
-            var fileRequest = new
+            if (!File.Exists(filePath))
             {
-                FileName = fileName,
-                DaysUntilDeletion = daysUntilDeletion
-            };
-
-            var jsonContent = JsonConvert.SerializeObject(fileRequest);
-            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-            var response = await _httpClient.PostAsync("uploadFile", content);
-
-            if (response.IsSuccessStatusCode)
-            {
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Файл загружен в Dropbox: {result}");
+                Console.WriteLine("Указанный файл не существует!");
+                return "nonexist";
             }
-            else
+
+            using (var form = new MultipartFormDataContent())
             {
-                Console.WriteLine("Ошибка при загрузке файла в Dropbox!");
+                using (var fileStream = File.OpenRead(filePath))
+                {
+                    var fileContent = new StreamContent(fileStream);
+                    fileContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+
+                    // Добавление файла в запрос
+                    form.Add(fileContent, "file", Path.GetFileName(filePath));
+
+                    // Добавление дополнительных данных в запрос
+                    form.Add(new StringContent(daysUntilDeletion.ToString()), "daysUntilDeletion");
+
+                    // Отправка запроса
+                    var response = await _httpClient.PostAsync("uploadFile", form);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Файл загружен в Dropbox: {result}");
+                        return result;
+                    }
+
+                    var error = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Ошибка при загрузке файла в Dropbox: {response.StatusCode} - {error}");
+                    return response.StatusCode.ToString();
+                }
             }
         }
     }
+
     public class QRCodeGenerationResponse
     {
         public byte[] ImageBytes { get; set; }
         public string Message { get; set; }
     }
-
 }

@@ -7,11 +7,18 @@ namespace FrontEnd
     public static class WatermarkBehavior
     {
         public static readonly DependencyProperty WatermarkProperty =
-            DependencyProperty.RegisterAttached("Watermark", typeof(string), typeof(WatermarkBehavior), new PropertyMetadata(string.Empty, OnWatermarkChanged));
+            DependencyProperty.RegisterAttached("Watermark", typeof(string), typeof(WatermarkBehavior),
+                new PropertyMetadata(string.Empty, OnWatermarkChanged));
 
-        public static string GetWatermark(DependencyObject obj) => (string)obj.GetValue(WatermarkProperty);
+        public static string GetWatermark(DependencyObject obj)
+        {
+            return (string)obj.GetValue(WatermarkProperty);
+        }
 
-        public static void SetWatermark(DependencyObject obj, string value) => obj.SetValue(WatermarkProperty, value);
+        public static void SetWatermark(DependencyObject obj, string value)
+        {
+            obj.SetValue(WatermarkProperty, value);
+        }
 
         private static void OnWatermarkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

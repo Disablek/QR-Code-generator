@@ -1,0 +1,80 @@
+2024-12-15 22:08:46 [Information] Приложение запущено в 12/15/2024 22:08:46
+2024-12-15 22:08:46 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 22:08:46 [Error] Произошла ошибка в процессе обработки запроса: 27ec07e8-d3e4-44a0-a28d-181828075aad
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 45
+2024-12-15 22:49:35 [Information] Приложение запущено в 12/15/2024 22:49:35
+2024-12-15 22:49:35 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 22:49:35 [Error] Произошла ошибка в процессе обработки запроса: 95939574-3606-4626-b3fc-09cc8dd17549
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 45
+2024-12-15 22:52:42 [Information] Приложение запущено в 12/15/2024 22:52:42
+2024-12-15 22:52:42 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 22:52:42 [Error] Произошла ошибка в процессе обработки запроса: cf2e485e-3d57-459d-813a-58b774aeb791
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 22:54:29 [Information] Приложение запущено в 12/15/2024 22:54:29
+2024-12-15 22:54:29 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 22:54:29 [Error] Произошла ошибка в процессе обработки запроса: 862703ae-02fa-4813-9bfa-87a00c70b9e2
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:02:10 [Information] Приложение запущено в 12/15/2024 23:02:10
+2024-12-15 23:02:10 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:02:10 [Error] Произошла ошибка в процессе обработки запроса: f7a36fbf-fa86-4bfe-a5e1-a53f75b1cd2e
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:02:47 [Information] Приложение запущено в 12/15/2024 23:02:47
+2024-12-15 23:02:47 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:02:47 [Error] Произошла ошибка в процессе обработки запроса: 8d7d1660-2011-4377-a030-447445d66ea3
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:08:15 [Information] Приложение запущено в 12/15/2024 23:08:15
+2024-12-15 23:08:15 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:08:15 [Error] Произошла ошибка в процессе обработки запроса: ef03d86f-06b3-4e8a-b994-b4cfa18b294d
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:08:55 [Information] Приложение запущено в 12/15/2024 23:08:55
+2024-12-15 23:08:55 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:08:55 [Error] Произошла ошибка в процессе обработки запроса: c17426ce-dc2d-494f-9309-e48a4b9bb728
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:11:39 [Information] Приложение запущено в 12/15/2024 23:11:39
+2024-12-15 23:11:39 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:11:39 [Error] Произошла ошибка в процессе обработки запроса: 1feb75fb-73c6-46ef-949f-d978637cba0a
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:12:59 [Information] Приложение запущено в 12/15/2024 23:12:59
+2024-12-15 23:12:59 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:12:59 [Error] Произошла ошибка в процессе обработки запроса: 8a78c14f-f5da-4074-92d0-e8bff7c87959
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:18:00 [Information] Приложение запущено в 12/15/2024 23:18:00
+2024-12-15 23:18:00 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:18:00 [Error] Произошла ошибка в процессе обработки запроса: 526855db-074a-421c-849d-ef9d30a6fea8
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:21:46 [Information] Приложение запущено в 12/15/2024 23:21:46
+2024-12-15 23:21:46 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:21:46 [Error] Произошла ошибка в процессе обработки запроса: 73a60bcd-e26b-486f-9ae2-68d339f91242
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:27:15 [Information] Приложение запущено в 12/15/2024 23:27:15
+2024-12-15 23:27:15 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:27:15 [Error] Произошла ошибка в процессе обработки запроса: 9930b819-1ead-4d1f-b2ad-8c051bcc6fe4
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:54:48 [Information] Приложение запущено в 12/15/2024 23:54:48
+2024-12-15 23:54:48 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:54:48 [Error] Произошла ошибка в процессе обработки запроса: 5687c673-5753-4907-8343-1c0eb49f491f
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:57:58 [Information] Приложение запущено в 12/15/2024 23:57:58
+2024-12-15 23:57:58 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:57:58 [Error] Произошла ошибка в процессе обработки запроса: 3026f11b-8f35-49ac-9936-99ded7700959
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
+2024-12-15 23:59:12 [Information] Приложение запущено в 12/15/2024 23:59:12
+2024-12-15 23:59:12 [Information] Результат работы с базой данных: "System.Threading.Tasks.Task`1[System.String]"
+2024-12-15 23:59:12 [Error] Произошла ошибка в процессе обработки запроса: a301a35b-5108-44ba-b465-4dd798fbc5d3
+System.Exception: Тестовая ошибка
+   в FrontEnd.MainWindow..ctor() в C:\Users\Disable\source\repos\Disablek\TEsTS\QR-Code-generator\FrontEnd\MainWindow.xaml.cs:строка 47
