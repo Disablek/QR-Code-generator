@@ -54,8 +54,10 @@ namespace MyQRCodeApp.Controllers
         [HttpPost("generateImageLink")]
         public async Task<IActionResult> GenerateImageLink(IFormFile file)
         {
-            if (file == null || file.Length == 0)
+            if (file == null || file.Length == 0){
+                Console.WriteLine("File error");
                 return BadRequest("Файл не загружен");
+            }
 
             // Указываем путь для сохранения файла
             var uploadsPath = Path.Combine("/app/uploads");
@@ -67,17 +69,22 @@ namespace MyQRCodeApp.Controllers
             }
 
             var filePath = Path.Combine(uploadsPath, file.FileName);
-
+            Console.WriteLine(filePath);
             // Сохраняем файл во временное хранилище
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
+            try{
+                // Генерация ссылки
+                var imageUrl = await _linkGeneratorService.GenerateLinkFromImage(filePath);
+                return Ok(imageUrl);
 
-            // Генерация ссылки
-            var imageUrl = _linkGeneratorService.GenerateLinkFromImage(filePath);
-
-            return Ok(imageUrl);
+            }
+            catch (Exception ex){
+                Console.WriteLine("Exception: " + ex);
+                return BadRequest(ex);
+            }
         }
 
 

@@ -68,7 +68,6 @@ class Program
         }
 
         using var dbContext = new ApplicationDbContext(optionsBuilder.Options);
-
         dbContext.Database.EnsureCreated();
 
         var builder = WebApplication.CreateBuilder(args);

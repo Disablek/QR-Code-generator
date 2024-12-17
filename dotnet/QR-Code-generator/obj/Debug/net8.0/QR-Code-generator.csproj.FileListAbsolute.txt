@@ -221,3 +221,4 @@ c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\bin\Debug\net8.0
 c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\bin\Debug\net8.0\Serilog.Sinks.File.dll
 c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\bin\Debug\net8.0\SkiaSharp.QrCode.dll
+C:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

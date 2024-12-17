@@ -1,21 +1,38 @@
-# Устанавливаем базовые образы
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-windowsservercore-ltsc2022 AS base
-WORKDIR /app
-EXPOSE 80
-
+# Используем Windows SDK
 FROM mcr.microsoft.com/dotnet/sdk:8.0-windowsservercore-ltsc2022 AS build
-WORKDIR /src
+WORKDIR /app
 
-# Правильный путь к .csproj
-COPY ["QR-Code-generator/QR-Code-generator.csproj", "QR-Code-generator/"]
+# Копируем файлы проекта
+COPY . .
+
+COPY F:\\python-3.11.0-amd64.exe /app/python-installer.exe
+
+# Устанавливаем Python через MSI
+RUN powershell -Command \
+    Start-Process python-installer.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -NoNewWindow -Wait; \
+    Remove-Item python-installer.exe
+
+# Проверяем, что Python установлен
+RUN python --version
+
+# Устанавливаем необходимые модули Python
+#RUN python -m pip install --upgrade pip && \
+ #   pip install requests
+
+# Копируем локальный Python скрипт в контейнер
+COPY lok.py /app/python/lok.py
+
+# Восстанавливаем зависимости
 RUN dotnet restore "QR-Code-generator/QR-Code-generator.csproj"
 
-COPY . .
-WORKDIR "/src/QR-Code-generator"
-RUN dotnet publish "QR-Code-generator.csproj" -c Release -o /app
+# Собираем проект
+RUN dotnet publish "QR-Code-generator/QR-Code-generator.csproj" -c Release -o /app
 
-# Финальный образ
-FROM base AS final
-WORKDIR /app
-COPY --from=build /app .
+# Создаем папку для загрузок
+RUN mkdir C:\app\uploads
+
+# Указываем порт
+EXPOSE 5000
+
+# Указываем команду запуска приложения
 ENTRYPOINT ["dotnet", "QR-Code-generator.dll"]

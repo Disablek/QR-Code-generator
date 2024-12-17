@@ -17,8 +17,33 @@ namespace QRCodeGeneratorApp.Services{
         public LinkGeneratorService(ApplicationDbContext context)
         {
             _context = context;
+                    // Инициализация Python должна быть в конструкторе или одном месте, до использования
+            InitializePython();
         }
 
+        public void InitializePython()
+        {
+            if (!PythonEngine.IsInitialized) // Check if Python is already initialized
+            {
+                try
+                {
+                    // Set Python DLL path and environment variables
+                    string pythonDllPath = @"C:\Program Files\Python311\python311.dll";
+                    Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", pythonDllPath);
+                    PythonEngine.PythonHome = @"C:\Program Files\Python311";
+                    PythonEngine.PythonPath = @"C:\Program Files\Python311\lib";
+
+                    // Initialize Python
+                    PythonEngine.Initialize();
+                    Console.WriteLine("Python initialized successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error initializing Python: {ex.Message}");
+                }
+
+            }
+        }
         public string GenerateWiFiLink(string ssid, string password, string encryptionType)
         {
             // Формируем строку для QR-кода Wi-Fi
@@ -26,37 +51,61 @@ namespace QRCodeGeneratorApp.Services{
             return wifiData;
         }
 
-        public string GenerateLinkFromImage(string filepath)
+        public async Task<string> GenerateLinkFromImage(string filepath)
         {
             string imageUrl = string.Empty;
-
-            try
+            Console.WriteLine($"PYTHONNET_PYDLL: {Environment.GetEnvironmentVariable("PYTHONNET_PYDLL")}");
+            Console.WriteLine($"PythonHome: {PythonEngine.PythonHome}");
+            Console.WriteLine($"PythonPath: {PythonEngine.PythonPath}");
+            InitializePython();
+            await Task.Run(() =>
             {
-                // Указание пути к библиотеке Python
-                Runtime.PythonDLL = "/usr/lib/x86_64-linux-gnu/libpython3.11.so.1.0";
-                PythonEngine.Initialize();
-
-                using (Py.GIL())
+                try
                 {
-                    // Добавляем путь к директории с локальным Python-скриптом
-                    dynamic sys = Py.Import("sys");
-                    sys.path.append("/app/python/");  // Путь к каталогу с вашими Python скриптами в контейнере
+                    Console.WriteLine("Using py.GIL");
+                    using (Py.GIL())
+                    {
+                        Console.WriteLine("Entered GIL block");
+                        dynamic sys = Py.Import("sys");
+                        Console.WriteLine("sys imported");
 
-                    // Импортируем скрипт lok и вызываем функцию createimgBB
-                    var pythonscript = Py.Import("lok");
-                    var message = new PyString(filepath);
-                    var result = pythonscript.InvokeMethod("createimgBB", new PyObject[] { message });
-                    imageUrl = result.ToString();
+                        sys.path.append(@"C:\app\python");
+                        Console.WriteLine("Path appended");
+
+                        var pythonscript = Py.Import("lok");
+                        Console.WriteLine("Python script imported");
+
+                        var message = new PyString(filepath);
+                        Console.WriteLine($"Message: {message}");
+
+                        var result = pythonscript.InvokeMethod("createimgBB", new PyObject[] { message });
+                        Console.WriteLine($"Result: {result}");
+                    }
+
                 }
-            }
-            catch (Exception ex)
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error generating link: {ex.Message}");
+                }
+                finally
+                {
+                    if (PythonEngine.IsInitialized)
+                    {
+                        PythonEngine.Shutdown();
+
+                        Console.WriteLine("Python engine shut down.");
+                    }
+                }
+            });
+            if (imageUrl == String.Empty)
             {
-                Console.WriteLine($"Ошибка при генерации ссылки: {ex.Message}");
+                Console.WriteLine("Empty");
             }
 
-            Console.WriteLine($"URL загруженного изображения: {imageUrl}");
+            Console.WriteLine("End of using py.Gil");
             return imageUrl;
         }
+
 
 
         /*

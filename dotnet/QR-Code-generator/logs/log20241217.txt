@@ -1,0 +1,5 @@
+2024-12-17 16:40:22 [Information] Приложение запущено в 12/17/2024 16:40:22
+2024-12-17 16:40:22 [Information] Результат работы с базой данных: "Пример результата"
+2024-12-17 16:40:22 [Error] Произошла ошибка в процессе обработки запроса: f21914da-0267-4868-9581-a2429d412967
+System.Exception: Тестовая ошибка
+   at Program.Main(String[] args) in c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\Program.cs:line 38
