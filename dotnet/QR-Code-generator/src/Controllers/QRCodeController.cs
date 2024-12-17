@@ -11,10 +11,7 @@ namespace MyQRCodeApp.Controllers
     {
         private readonly QRCodeService _qrCodeService;
         private readonly LinkGeneratorService _linkGeneratorService; // Добавлен сервис LinkGeneratorService
-        private readonly LinkGeneratorService _linkGeneratorService; // Добавлен сервис LinkGeneratorService
 
-        // Инъекция зависимостей
-        public QRCodeController(QRCodeService qrCodeService, LinkGeneratorService linkGeneratorService)
         // Инъекция зависимостей
         public QRCodeController(QRCodeService qrCodeService, LinkGeneratorService linkGeneratorService)
         {

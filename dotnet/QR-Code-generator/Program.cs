@@ -17,7 +17,6 @@ using Serilog.Sinks.SystemConsole;
 
 class Program
 {
-{
     static async Task Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;

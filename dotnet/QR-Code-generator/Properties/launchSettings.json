@@ -1,14 +1,12 @@
 {
   "profiles": {
-  "QR-Code-generator": {
-    "commandName": "Project",
-    "dotnetRunMessages": true,
-    "launchBrowser": false,
-    "applicationUrl": "http://localhost:5000",
-    "environmentVariables": {
-      "ASPNETCORE_ENVIRONMENT": "Development"
+    "QR-Code-generator": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55555;http://localhost:55556"
     }
   }
-}
-
 }

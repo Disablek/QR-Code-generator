@@ -1,0 +1,5 @@
+2024-12-18 01:26:31 [Information] Приложение запущено в 12/18/2024 01:26:31
+2024-12-18 01:26:31 [Information] Результат работы с базой данных: "Пример результата"
+2024-12-18 01:26:31 [Error] Произошла ошибка в процессе обработки запроса: c5334d27-f88c-440a-af0a-11004a350a1f
+System.Exception: Тестовая ошибка
+   at Program.Main(String[] args) in c:\Users\Disable\XUI\QR-Code-generator\dotnet\QR-Code-generator\Program.cs:line 38
