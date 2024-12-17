@@ -38,6 +38,17 @@
           }
         }
       },
+      "Dropbox.Api/7.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dropbox.Api.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
+      },
       "fasterflect/3.0.0": {
         "dependencies": {
           "System.Reflection.Emit.ILGeneration": "4.7.0",
@@ -562,6 +573,14 @@
           }
         }
       },
+      "Newtonsoft.Json/13.0.2": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.2.27524"
+          }
+        }
+      },
       "QuantConnect.pythonnet/2.0.40": {
         "dependencies": {
           "fasterflect": "3.0.0"
@@ -939,6 +958,13 @@
       "path": "dropbox.api/7.0.0",
       "hashPath": "dropbox.api.7.0.0.nupkg.sha512"
     },
+    "Dropbox.Api/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ie48rFTFL7rC8YGZ2KMRckhN8QbF56VzCns9+PymrjwcVfnGfKEc2EtHLUau2hrlwvaUtDf6wvTQJXHWAwhhug==",
+      "path": "dropbox.api/7.0.0",
+      "hashPath": "dropbox.api.7.0.0.nupkg.sha512"
+    },
     "fasterflect/3.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1218,6 +1244,13 @@
       "sha512": "sha512-9opKRyOKMCi2xJ7Bj7kxtZ1r9vbzosMvRrdEhVhDz8j8MoBGgB+WmC94yH839NPH+BclAjtQ/pyagvi/8gDLkw==",
       "path": "microsoft.win32.systemevents/8.0.0",
       "hashPath": "microsoft.win32.systemevents.8.0.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
+      "path": "newtonsoft.json/13.0.2",
+      "hashPath": "newtonsoft.json.13.0.2.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.2": {
       "type": "package",

@@ -49,8 +49,18 @@
           "SelectedChildIndex": 8,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\FrontEnd\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "FrontEnd\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\FrontEnd\\MainWindow.xaml",
+              "RelativeToolTip": "FrontEnd\\MainWindow.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-26T19:25:55.511Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -135,7 +145,8 @@
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs",
               "RelativeToolTip": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Controllers\\UserController.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T09:17:10.548Z"
+              "WhenOpened": "2024-12-07T16:52:13.351Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -146,7 +157,8 @@
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs",
               "RelativeToolTip": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\UserModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:06:34.506Z"
+              "WhenOpened": "2024-12-07T16:52:12.59Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -157,7 +169,8 @@
               "ToolTip": "C:\\Users\\Disable\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs",
               "RelativeToolTip": "..\\..\\..\\source\\repos\\QR-Code-generator\\QR-Code-generator\\src\\Models\\HistoryModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:06:31.544Z"
+              "WhenOpened": "2024-12-07T16:52:09.087Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -169,7 +182,20 @@
               "RelativeToolTip": "QR-Code-generator\\Program.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:06:03.731Z",
+              "WhenOpened": "2024-12-03T14:02:14.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "WiFiPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\FrontEnd\\Pages\\WiFiPage.xaml",
+              "RelativeDocumentMoniker": "FrontEnd\\Pages\\WiFiPage.xaml",
+              "ToolTip": "C:\\Users\\Disable\\source\\repos\\Disablek\\TEsTS\\QR-Code-generator\\dotnet\\FrontEnd\\Pages\\WiFiPage.xaml",
+              "RelativeToolTip": "FrontEnd\\Pages\\WiFiPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-03T14:02:12.551Z",
               "EditorCaption": ""
             },
             {

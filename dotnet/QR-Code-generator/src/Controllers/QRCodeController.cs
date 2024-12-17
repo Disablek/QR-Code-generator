@@ -6,18 +6,24 @@ namespace MyQRCodeApp.Controllers
 {
     [ApiController]
     [Route("api/QRCode")]
+    [Route("api/QRCode")]
     public class QRCodeController : ControllerBase
     {
         private readonly QRCodeService _qrCodeService;
         private readonly LinkGeneratorService _linkGeneratorService; // Добавлен сервис LinkGeneratorService
+        private readonly LinkGeneratorService _linkGeneratorService; // Добавлен сервис LinkGeneratorService
 
+        // Инъекция зависимостей
+        public QRCodeController(QRCodeService qrCodeService, LinkGeneratorService linkGeneratorService)
         // Инъекция зависимостей
         public QRCodeController(QRCodeService qrCodeService, LinkGeneratorService linkGeneratorService)
         {
             _qrCodeService = qrCodeService;
             _linkGeneratorService = linkGeneratorService; // Инициализация
+            _linkGeneratorService = linkGeneratorService; // Инициализация
         }
 
+        // Генерация QR-кода и его сохранение
         // Генерация QR-кода и его сохранение
         [HttpPost("generate")]
         public IActionResult GenerateAndSaveQRCode([FromBody] QRCodeRequest request)
